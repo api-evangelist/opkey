@@ -1,0 +1,55 @@
+generated: '2026-08-04'
+method: generated
+source: openapi/opkey-pcloudy-openapi.yml
+note: Packaged agent skills for the pCloudy Device Cloud API. Every operationId referenced was verified against
+  openapi/opkey-pcloudy-openapi.yml. Opkey publishes no AGENTS.md or provider-authored skill files.
+skills:
+- file: opkey-book-device-and-run-app.md
+  name: Book a pCloudy device and exercise an app on it
+  description: Authenticate to pCloudy, upload an app build, book a real device, install and launch the app, drive
+    it, then release the device cleanly.
+  api: openapi/opkey-pcloudy-openapi.yml
+  operations:
+  - authentication
+  - uploadApp
+  - getAvailableApps
+  - getDeviceList
+  - bookDevice
+  - installLaunchApp
+  - sendText
+  - rotateDevice
+  - killApp
+  - releaseDeviceLegacy
+- file: opkey-prepare-ios-build.md
+  name: Resign an iOS build (or instrument an APK) for pCloudy devices
+  description: Run the two asynchronous job flows in the pCloudy API — iOS app resigning and Android APK instrumentation
+    — from initiate through polled progress to download and install.
+  api: openapi/opkey-pcloudy-openapi.yml
+  operations:
+  - authentication
+  - uploadApp
+  - initiateResigning
+  - resigningProgress
+  - downloadResigned
+  - instrumentInitiate
+  - instrumentationProgress
+  - downloadInstrumented
+  - installLaunchApp
+- file: opkey-run-appium-session.md
+  name: Run an Appium automation session on pCloudy devices
+  description: Book devices for Appium, initialise the pCloudy Appium hub, drive a WebDriver session against real
+    devices, and collect the report and performance files.
+  api: openapi/opkey-pcloudy-openapi.yml
+  operations:
+  - authentication
+  - uploadApp
+  - bookDevicesAppium
+  - initAppiumhub
+  - getAppiumEndpoint
+  - appiumSession
+  - updateAppiumSession
+  - getAppiumReport
+  - getAppiumFileList
+  - downloadAppiumPerf
+  - appiumShareableLink
+  - releaseDeviceLegacy

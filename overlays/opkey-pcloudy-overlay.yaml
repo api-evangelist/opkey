@@ -1,0 +1,42 @@
+overlay: 1.0.0
+info:
+  title: API Evangelist enhancements for the pCloudy Device Cloud API
+  version: 1.0.0
+extends: openapi/opkey-pcloudy-openapi.yml
+actions:
+- target: $.info
+  update:
+    x-apievangelist-provenance: transcribed from https://content.pcloudy.com/apidocs/ — Opkey publishes no OpenAPI
+    x-apievangelist-artifacts:
+      authentication: authentication/opkey-authentication.yml
+      conventions: conventions/opkey-conventions.yml
+      errors: errors/opkey-problem-types.yml
+      lifecycle: lifecycle/opkey-lifecycle.yml
+      data_model: data-model/opkey-data-model.yml
+      mcp: mcp/opkey-pcloudy-mcp.yml
+      tool_crosswalk: mcp/opkey-tool-crosswalk.yml
+      sandbox: sandbox/opkey-sandbox.yml
+      agentic_access: agentic-access/opkey-agentic-access.yml
+      skills: skills/_index.yml
+    x-apievangelist-gaps:
+    - no idempotency contract
+    - no pagination convention
+    - no rate-limit signal
+    - no deprecation policy despite a superseded /api/ generation
+    - no status page
+    - no error-code registry
+    - no /.well-known/ surface
+    - no agent card
+- target: $.paths['/api/access'].get
+  update:
+    x-apievangelist-note: The only GET and the only Basic-auth operation. Everything else consumes the token it
+      returns.
+- target: $.paths['/api/book_device'].post
+  update:
+    x-apievangelist-note: Returns the `rid` that scopes nearly every other operation. Default booking duration documented
+      as 30 minutes by the official MCP server.
+    x-apievangelist-consequence: allocates a billable real device
+- target: $.paths['/api/release_device'].post
+  update:
+    x-apievangelist-note: Always call this. pCloudy documents that failing to release can get the caller's IP temporarily
+      blocked.

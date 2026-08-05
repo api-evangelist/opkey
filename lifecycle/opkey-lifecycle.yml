@@ -1,0 +1,31 @@
+generated: '2026-08-04'
+method: searched
+source:
+- https://www.pcloudy.com/docs/release-notes/
+- https://www.opkey.com/security-and-trust
+- openapi/opkey-pcloudy-openapi.yml
+versioning:
+  scheme: uri-path
+  current: v2
+  legacy: v1 (/api/*, still documented and still the only path for several capabilities)
+  product_release_line: pCloudy 8.5
+  docs: https://www.pcloudy.com/docs/release-notes/
+deprecation:
+  policy_url: null
+  policy_published: false
+  sunset_header: false
+  note: 'No deprecation policy, no Sunset/Deprecation header support, and no `deprecated: true` marker anywhere
+    in the published reference — even though a whole legacy /api/* generation is superseded by /api/v2/* equivalents.
+    A consumer has no published signal for when the v1 paths will stop working.'
+sla:
+  url: null
+  uptime_target: null
+  note: No public SLA or uptime commitment found on opkey.com or pcloudy.com.
+status_page: null
+status_page_note: No status page. status.opkey.com and status.pcloudy.com do not resolve, and neither site links
+  to a hosted status provider. This is the most visible operational-transparency gap for a platform whose product
+  is other people's release readiness.
+deprecated_operations: []
+release_cadence:
+  observed: minor releases 5.7 through 8.5 documented, 36 release-note pages
+  latest_documented: '8.5'

@@ -1,0 +1,26 @@
+generated: '2026-08-04'
+method: derived
+source: openapi/opkey-pcloudy-openapi.yml
+summary:
+  types:
+  - apiKey
+  - http
+  api_key_in:
+  - header
+schemes:
+- name: basicAuth
+  type: http
+  scheme: basic
+  description: HTTP Basic with your pCloudy email as the username and your API access key as
+    the password. Used only by GET /api/access to mint an access token.
+  sources:
+  - openapi/opkey-pcloudy-openapi.yml
+- name: accessToken
+  type: apiKey
+  in: header
+  parameter: token
+  description: Access token returned by GET /api/access. Newer /api/v2/* operations send it
+    as a `token` header; several legacy /api/* operations send the same token as a `token` field
+    in the JSON request body.
+  sources:
+  - openapi/opkey-pcloudy-openapi.yml

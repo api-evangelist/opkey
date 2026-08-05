@@ -1,0 +1,141 @@
+generated: '2026-08-04'
+method: derived
+source: openapi/opkey-pcloudy-openapi.yml
+note: Derived from the identifier fields threaded through the 90 published operations rather than from components.schemas
+  — the pCloudy reference documents parameters and example payloads but ships no named response schemas, so there
+  are no $ref edges to walk. Every relationship below is evidenced by a real parameter name in a real operation.
+entities:
+- name: Account
+  identified_by: email + accessKey
+  description: The pCloudy tenant. Exchanges Basic credentials for an access token at /api/access.
+  operations:
+  - authentication
+- name: AccessToken
+  identified_by: token
+  description: Bearer-style opaque token carried in the `token` header (v2) or `token` body field (legacy). No documented
+    TTL; the official MCP server caches it for 5 days.
+  operations:
+  - authentication
+- name: Device
+  identified_by: id / device_name (+ platform, version)
+  description: A real Android or iOS handset in the cloud.
+  operations:
+  - getDeviceList
+  - getSingleDevice
+- name: Reservation
+  identified_by: rid
+  description: A booked device session. The central object — nearly every operation is scoped to an rid.
+  operations:
+  - bookDevice
+  - releaseDevice
+  - releaseDeviceLegacy
+- name: CloudDriveFile
+  identified_by: filename (+ dir)
+  description: An app binary or data file uploaded to the account's cloud drive.
+  operations:
+  - uploadApp
+  - getAvailableApps
+  - downloadFileCloud
+  - deleteFileCloud
+- name: InstalledApp
+  identified_by: packageName (Android) / bundle id (iOS)
+  description: An app installed onto a reservation.
+  operations:
+  - installLaunchApp
+  - killApp
+  - uninstallApp
+  - openApp
+- name: SessionMedia
+  identified_by: rid + filename
+  description: Screenshots, session video, device logs and crash logs captured during a reservation.
+  operations:
+  - captureScreenshot
+  - sessionDetails
+- name: PerformanceReport
+  identified_by: rid + report file
+  description: Device/app performance data captured during a reservation.
+  operations:
+  - startPerformance
+  - performanceFileList
+  - downloadPerformance
+- name: ResignJob
+  identified_by: file_name
+  description: 'An iOS resigning job: initiate -> poll progress -> download.'
+  operations:
+  - initiateResigning
+  - resigningProgress
+  - downloadResigned
+- name: InstrumentationJob
+  identified_by: file_name
+  description: 'An APK instrumentation job: initiate -> poll progress -> download.'
+  operations:
+  - instrumentInitiate
+  - instrumentationProgress
+  - downloadInstrumented
+- name: AppiumSession
+  identified_by: rid + appium session
+  description: An Appium hub session bound to one or more reservations.
+  operations:
+  - bookDevicesAppium
+  - initAppiumhub
+  - getAppiumEndpoint
+  - getAppiumReport
+- name: NetworkProfile
+  identified_by: profile name
+  description: A simulated network condition (3G/4G/packet loss) applied to a reservation.
+  operations:
+  - getNetworkProfiles
+  - setNetworkProfile
+  - unshapeNetwork
+relationships:
+- from: Account
+  to: AccessToken
+  kind: has_many
+  via: token
+- from: Account
+  to: CloudDriveFile
+  kind: has_many
+  via: cloud drive
+- from: Reservation
+  to: Device
+  kind: belongs_to
+  via: id
+- from: Reservation
+  to: InstalledApp
+  kind: has_many
+  via: rid + packageName
+- from: Reservation
+  to: SessionMedia
+  kind: has_many
+  via: rid
+- from: Reservation
+  to: PerformanceReport
+  kind: has_many
+  via: rid
+- from: Reservation
+  to: NetworkProfile
+  kind: has_one
+  via: rid
+- from: InstalledApp
+  to: CloudDriveFile
+  kind: belongs_to
+  via: filename
+- from: ResignJob
+  to: CloudDriveFile
+  kind: belongs_to
+  via: file_name
+- from: InstrumentationJob
+  to: CloudDriveFile
+  kind: belongs_to
+  via: file_name
+- from: AppiumSession
+  to: Reservation
+  kind: has_many
+  via: rid
+id_conventions:
+- field: rid
+  meaning: Device reservation id, integer, returned by /api/book_device. The join key for the whole API.
+- field: token
+  meaning: Opaque access token from /api/access.
+- field: vm_id
+  meaning: Browser Cloud virtual machine id (MCP/Browser Cloud surface only, not in the public REST reference).

@@ -1,0 +1,62 @@
+generated: '2026-08-04'
+method: derived
+source:
+- https://content.pcloudy.com/apidocs/index.html
+- openapi/opkey-pcloudy-openapi.yml
+- https://www.pcloudy.com/docs/api-reference/
+authentication:
+  style: basic-then-token
+  mint: 'GET <Cloud URL>/api/access with HTTP Basic (email : access key from Account Settings -> API)'
+  carry: '`token` request header on /api/v2/* operations; a `token` field in the JSON body on legacy /api/* operations'
+  artifact: authentication/opkey-authentication.yml
+  note: The split between header-carried and body-carried tokens is the single sharpest edge in this API for a client
+    or an agent.
+http:
+  default_method: POST
+  exception: GET only on /api/access
+  content_type: application/json (multipart/form-data on /api/upload_file)
+  base_url: https://<cloud>.pcloudy.com — the docs call this <Cloud URL>; it varies per tenant (device, us, sg,
+    uae, ind-west, ind-west2, or a private/on-prem host)
+idempotency:
+  supported: false
+  evidence: No Idempotency-Key header, request-key parameter, or replay semantics documented on any of the 90 published
+    operations.
+  impact: Retrying a booking, install, or resign call after a timeout can duplicate the side effect; callers must
+    reconcile with the reservation id (rid) themselves.
+pagination:
+  supported: false
+  evidence: Only /api/drive takes a `limit`; there is no cursor, offset, page or next-link convention anywhere in
+    the reference.
+request_tracing:
+  supported: true
+  direction: response-only
+  fields:
+  - traceId
+  - requestId
+  note: Returned on /api/v2/* responses. There is no documented client-supplied correlation header.
+session_model:
+  primary_key: rid (device reservation id)
+  note: Almost every operation is scoped to a booked device by `rid`, returned by /api/book_device. The lifecycle
+    is book -> operate -> release; the docs and the community CLI both warn that failing to release can get the
+    caller's IP temporarily blocked.
+  default_booking_duration_minutes: 30
+versioning:
+  scheme: uri-path
+  versions:
+  - /api/ (legacy)
+  - /api/v2/
+  note: Both generations are documented side by side and several capabilities exist at both paths with different
+    parameter placement. No version header, no date-based train.
+error_envelope:
+  artifact: errors/opkey-problem-types.yml
+  format: vendor JSON envelope, not RFC 9457
+rate_limits:
+  published: false
+  evidence: No rate-limit headers, quotas or 429 semantics documented in the API reference or docs site.
+  note: Capacity is governed commercially by concurrent-device entitlement rather than by a request-rate contract.
+cross_links:
+  errors: errors/opkey-problem-types.yml
+  lifecycle: lifecycle/opkey-lifecycle.yml
+  authentication: authentication/opkey-authentication.yml
+  sandbox: sandbox/opkey-sandbox.yml
+  data_model: data-model/opkey-data-model.yml

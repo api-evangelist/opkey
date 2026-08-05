@@ -1,0 +1,37 @@
+generated: '2026-08-04'
+method: searched
+source: https://www.pcloudy.com/docs/release-notes/
+scheme: major.minor product release notes (one docs page per release)
+current_version: '8.5'
+url: https://www.pcloudy.com/docs/release-notes/
+dated: false
+note: pCloudy publishes a full release-notes tree — 36 pages from 5.7 to 8.5 — but the pages carry a 'last updated'
+  stamp rather than per-release dates, so entries below record version and content, not a date. Opkey's own product
+  changelog is not public; it sits behind the customer hub login.
+entries:
+- version: '8.5'
+  date: null
+  breaking: false
+  highlights:
+  - 'QPilot MCP Server — lets MCP clients (Claude, Cursor) drive a pCloudy environment in natural language: device
+    discovery, test execution and result retrieval.'
+  - Database Connector — run database queries inside a QPilot test workflow and store results as reusable variables
+    for backend validation.
+  - Ask AI — plain-English validation instead of hand-written assertions.
+  - iOS 27 device support.
+  url: https://www.pcloudy.com/docs/release-notes/8.5
+- version: '8.4'
+  date: null
+  url: https://www.pcloudy.com/docs/release-notes/8.4
+- version: '8.3'
+  date: null
+  url: https://www.pcloudy.com/docs/release-notes/8.3
+- version: '8.2'
+  date: null
+  url: https://www.pcloudy.com/docs/release-notes/8.2
+- version: '8.1'
+  date: null
+  url: https://www.pcloudy.com/docs/release-notes/8.1
+- version: '8.0'
+  date: null
+  url: https://www.pcloudy.com/docs/release-notes/8.0

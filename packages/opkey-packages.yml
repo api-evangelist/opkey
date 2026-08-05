@@ -1,0 +1,101 @@
+generated: '2026-08-04'
+method: searched
+source:
+- https://pypi.org/
+- https://www.npmjs.com/
+- https://github.com/Smart-Software-Testing-Solutions-Opkey
+- https://www.pcloudy.com/docs/
+note: 'Opkey''s client libraries are published under the pCloudy product name. First-party publishers observed:
+  PyPI author ''pCloudy'' and npm maintainers ''pcloudy-devices-cloud'' / ''pcloudy-mobile-devices''. No Opkey-branded
+  package was found on npm, PyPI, Maven Central, NuGet, pkg.go.dev, RubyGems, Packagist or crates.io.'
+packages:
+- language: python
+  registry: pypi
+  name: pcloudy-mcp
+  version: 0.1.4
+  url: https://pypi.org/project/pCloudy-mcp/
+  install: uvx pcloudy-mcp
+  official: true
+  publisher: pCloudy
+  kind: mcp-server
+  description: MCP server for pCloudy — device booking, browser booking, app management and QPilot test authoring
+    as MCP tools.
+- language: javascript
+  registry: npm
+  name: '@pcloudy-remote-devices/pcloudy-appium-connector'
+  version: 1.1.0
+  url: https://www.npmjs.com/package/@pcloudy-remote-devices/pcloudy-appium-connector
+  install: npm install @pcloudy-remote-devices/pcloudy-appium-connector
+  official: true
+  publisher: pcloudy-devices-cloud
+  kind: sdk
+  description: Appium connector library for driving automation on pCloudy real devices.
+- language: javascript
+  registry: npm
+  name: '@pcloudy-remote-devices/pcloudy-appium-connector-utility'
+  version: 1.1.0
+  url: https://www.npmjs.com/package/@pcloudy-remote-devices/pcloudy-appium-connector-utility
+  install: npm install @pcloudy-remote-devices/pcloudy-appium-connector-utility
+  official: true
+  publisher: pcloudy-devices-cloud
+  kind: sdk
+  description: Utility half of the pCloudy Appium connector library.
+- language: javascript
+  registry: npm
+  name: pcloudy-appium-client
+  version: 1.0.4
+  url: https://www.npmjs.com/package/pcloudy-appium-client
+  install: npm install pcloudy-appium-client
+  official: true
+  publisher: pcloudy-mobile-devices
+  kind: sdk
+  description: Appium connector for running automations on pCloudy devices.
+- language: javascript
+  registry: npm
+  name: pcloudy-appium-utility
+  version: null
+  url: https://www.npmjs.com/package/pcloudy-appium-utility
+  install: npm install pcloudy-appium-utility
+  official: true
+  publisher: pcloudy-mobile-devices
+  kind: sdk
+  description: Appium connector utility for pCloudy devices.
+- language: java
+  registry: github
+  name: pcloudy-release-artifacts
+  url: https://github.com/Smart-Software-Testing-Solutions-Opkey/pcloudy-release-artifacts
+  install: download the released JAR
+  official: true
+  publisher: Smart Software Testing Solutions Opkey
+  kind: cicd-runner
+  description: Executable JAR that reads a config, uploads APKs, books devices and runs tests — the pCloudy CI/CD
+    runner.
+- language: python
+  registry: pypi
+  name: pcloudy
+  version: 1.0.1
+  url: https://pypi.org/project/pcloudy/
+  install: pip install pcloudy
+  official: false
+  publisher: nickvergara (github.com/nickvergara/pcloudy)
+  kind: cli
+  description: Community pCloudy CLI — remote ADB bridge and device management. NOT published by Opkey/pCloudy;
+    the package README points at a third-party GitHub repo.
+- language: java
+  registry: maven-central
+  name: io.github.martinschneider:justtestlah-pcloudy
+  version: '1.4'
+  url: https://central.sonatype.com/artifact/io.github.martinschneider/justtestlah-pcloudy
+  official: false
+  publisher: martinschneider
+  kind: integration
+  description: Third-party JustTestLah! integration for pCloudy.
+registries_checked:
+- npm
+- pypi
+- maven-central
+- nuget
+- pkg.go.dev
+- rubygems
+- packagist
+- crates.io

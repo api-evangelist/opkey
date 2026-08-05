@@ -1,23 +1,157 @@
 aid: opkey
 name: Opkey
-description: 'Opkey is a company surfaced via the API Evangelist harvest backlog (source: secondary-market)
-  and added to the network as a stub for full-pipeline profiling.'
+description: 'Opkey (Smart Software Testing Solutions, Inc.) is a US-headquartered
+  Cloud Application Lifecycle Management and AI-powered test automation vendor for
+  enterprise packaged applications. Its no-code platform ships pre-built automated
+  tests and change-impact analysis for Oracle Cloud/EBS, Workday, Salesforce, SAP,
+  Coupa, Veeva, UKG/Kronos and Microsoft Dynamics, alongside an agentic layer (Argus
+  AI, Testing/Configuration/Training/Impact-Analysis/PMO agents, Release Advisor and
+  Maestro). Opkey also operates pCloudy, the real-device mobile and browser testing
+  cloud it acquired, which carries the company''s public developer surface: a documented
+  REST API for device booking, app upload/install, device interaction, performance
+  capture, network simulation, Appium/XCTest orchestration and APK instrumentation,
+  plus a published pCloudy MCP server that exposes device booking, app management and
+  QPilot AI test authoring as tools to MCP clients. The core Opkey product help and
+  user guides sit behind a customer login; the pCloudy documentation, API reference
+  and release notes are public.'
 url: https://raw.githubusercontent.com/api-evangelist/opkey/refs/heads/main/apis.yml
 x-type: company
 x-source: harvest:secondary-market
-x-tier: stub
-x-tier-reason: harvest
 specificationVersion: '0.20'
 created: '2026-08-04'
 modified: '2026-08-04'
+image: https://content.pcloudy.com/apidocs/pcloudy-logo.svg
 tags:
 - Company
-apis: []
+- Testing
+- Test Automation
+- Quality Assurance
+- DevOps
+- Continuous Integration
+- Mobile Testing
+- Device Cloud
+- ERP
+- Artificial Intelligence
+- Agents
+- MCP
+apis:
+- aid: opkey:pcloudy-api
+  name: pCloudy Device Cloud API
+  description: 'The public REST API for pCloudy, the real-device mobile and browser
+    testing cloud operated by Opkey. It follows resource-oriented URLs, defaults every
+    method to POST except authentication, and returns JSON. Coverage spans authentication
+    and access tokens, device listing/booking/release and session lifecycle, app upload
+    to the cloud drive, install/launch/kill/uninstall, device interaction (tap, swipe,
+    text, rotate, home, ADB), session media and logs (screenshots, video, device and
+    crash logs), app and device performance capture, network simulation profiles,
+    APK instrumentation, iOS app resigning, App Center integration, and Appium and
+    XCTest automation orchestration.'
+  humanURL: https://www.pcloudy.com/docs/api-reference/
+  baseURL: https://device.pcloudy.com
+  tags:
+  - Mobile Testing
+  - Device Cloud
+  - Test Automation
+  - Appium
+  - XCTest
+  properties:
+  - type: OpenAPI
+    url: openapi/opkey-pcloudy-openapi.yml
+  - type: APIReference
+    url: https://content.pcloudy.com/apidocs/index.html
+  - type: Documentation
+    url: https://www.pcloudy.com/docs/
+  - type: Authentication
+    url: authentication/opkey-authentication.yml
+  - type: Overlay
+    url: overlays/opkey-pcloudy-overlay.yaml
+  - type: DataModel
+    url: data-model/opkey-data-model.yml
+  - type: ErrorCatalog
+    url: errors/opkey-problem-types.yml
+  - type: Examples
+    url: examples/opkey-pcloudy-examples.yml
+- aid: opkey:pcloudy-mcp
+  name: pCloudy MCP Server
+  description: 'The official pCloudy MCP server, published by pCloudy as the Python
+    package pcloudy-mcp and run over stdio with uvx. It exposes 36 tools across four
+    groups — device booking, browser booking, app management, and QPilot AI test
+    authoring — letting an MCP client list and book real devices and browsers, upload,
+    install and resign apps, create projects/folders/tests, drive a QPilot playground
+    session in natural-language steps, and manage test data. Authentication is by
+    pCloudy username plus API key supplied as environment variables; the server mints
+    and caches an access token against the same /api/access endpoint the REST API uses.'
+  humanURL: https://www.pcloudy.com/docs/mcp-server/
+  baseURL: https://device.pcloudy.com
+  tags:
+  - MCP
+  - Agents
+  - Test Automation
+  properties:
+  - type: MCPServer
+    url: mcp/opkey-pcloudy-mcp.yml
+  - type: ToolCrosswalk
+    url: mcp/opkey-tool-crosswalk.yml
+  - type: Documentation
+    url: https://www.pcloudy.com/docs/mcp-server/
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: AgenticAccess
+  url: agentic-access/opkey-agentic-access.yml
+- type: DomainSecurity
+  url: security/opkey-domain-security.yml
 - type: Website
-  url: https://forgeglobal.com/opkey_stock/
+  url: https://www.opkey.com/
+- type: Documentation
+  url: https://www.pcloudy.com/docs/
+- type: APIReference
+  url: https://content.pcloudy.com/apidocs/index.html
+- type: GettingStarted
+  url: https://www.pcloudy.com/docs/mobile-app-testing/get-started
+- type: Blog
+  url: https://www.opkey.com/blog
+- type: Support
+  url: https://customerhub.opkey.com/support/solutions
+- type: GitHubOrganization
+  url: https://github.com/Smart-Software-Testing-Solutions-Opkey
+- type: SignUp
+  url: https://device.pcloudy.com/signup
+- type: Pricing
+  url: https://www.pcloudy.com/pricing
+- type: TermsOfService
+  url: https://www.opkey.com/terms-and-conditions
+- type: PrivacyPolicy
+  url: https://www.opkey.com/privacy-policy
+- type: Compliance
+  url: https://www.opkey.com/security-and-trust
+- type: LLMsTxt
+  url: llms/opkey-llms.txt
+- type: Packages
+  url: packages/opkey-packages.yml
+- type: SDKs
+  url: packages/opkey-packages.yml
+- type: CLI
+  url: cli/opkey-cli.yml
+- type: WellKnown
+  url: well-known/opkey-well-known.yml
+- type: Conformance
+  url: conformance/opkey-conformance.yml
+- type: Lifecycle
+  url: lifecycle/opkey-lifecycle.yml
+- type: ChangeLog
+  url: changelog/opkey-changelog.yml
+- type: Conventions
+  url: conventions/opkey-conventions.yml
+- type: Sandbox
+  url: sandbox/opkey-sandbox.yml
+- type: AgentSkill
+  url: skills/_index.yml
+x-enrichment:
+  date: '2026-08-04'
+  status: enriched
+  artifacts_added: 23
+  pass: local-v1

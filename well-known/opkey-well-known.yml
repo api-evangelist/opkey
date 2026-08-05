@@ -1,0 +1,165 @@
+generated: '2026-08-04'
+method: probed
+source: live GET of /.well-known/* on every apis.yml and OpenAPI servers[] host
+summary:
+  documents_found: 0
+  security_txt: false
+  openid_configuration: false
+  oauth_authorization_server: false
+  api_catalog: false
+  ai_plugin: false
+  agent_card: false
+  note: Opkey and pCloudy publish no /.well-known/ discovery surface at all. Two of the four hosts answer 200 for
+    every well-known path with an HTML catch-all — the dominant false positive on this probe — and were rejected
+    rather than recorded. Because no agent card parsed as JSON, no a2a/ artifact was written.
+hosts:
+- host: https://www.opkey.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+    file: null
+  - path: /.well-known/openid-configuration
+    status: 404
+    file: null
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+    file: null
+  - path: /.well-known/oauth-protected-resource
+    status: 404
+    file: null
+  - path: /.well-known/api-catalog
+    status: 404
+    file: null
+  - path: /.well-known/ai-plugin.json
+    status: 404
+    file: null
+  - path: /.well-known/agent-card.json
+    status: 404
+    file: null
+  - path: /.well-known/agent.json
+    status: 404
+    file: null
+  note: Every /.well-known/ path returns the site's 404 page. /llms.txt does return 200 and is harvested to llms/opkey-llms.txt.
+- host: https://device.pcloudy.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 302
+    file: null
+    redirect: 404/index.htm
+  - path: /.well-known/openid-configuration
+    status: 302
+    file: null
+    redirect: 404/index.htm
+  - path: /.well-known/oauth-authorization-server
+    status: 302
+    file: null
+    redirect: 404/index.htm
+  - path: /.well-known/oauth-protected-resource
+    status: 302
+    file: null
+    redirect: 404/index.htm
+  - path: /.well-known/api-catalog
+    status: 302
+    file: null
+    redirect: 404/index.htm
+  - path: /.well-known/ai-plugin.json
+    status: 302
+    file: null
+    redirect: 404/index.htm
+  - path: /.well-known/agent-card.json
+    status: 302
+    file: null
+    redirect: 404/index.htm
+  - path: /.well-known/agent.json
+    status: 302
+    file: null
+    redirect: 404/index.htm
+  note: The API host 302s every /.well-known/ path to its own 404 page. No discovery documents are served.
+- host: https://www.pcloudy.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 200
+    file: null
+    rejected: catch-all
+    content_type: text/html
+  - path: /.well-known/openid-configuration
+    status: 200
+    file: null
+    rejected: catch-all
+    content_type: text/html
+  - path: /.well-known/oauth-authorization-server
+    status: 200
+    file: null
+    rejected: catch-all
+    content_type: text/html
+  - path: /.well-known/oauth-protected-resource
+    status: 200
+    file: null
+    rejected: catch-all
+    content_type: text/html
+  - path: /.well-known/api-catalog
+    status: 200
+    file: null
+    rejected: catch-all
+    content_type: text/html
+  - path: /.well-known/ai-plugin.json
+    status: 200
+    file: null
+    rejected: catch-all
+    content_type: text/html
+  - path: /.well-known/agent-card.json
+    status: 200
+    file: null
+    rejected: catch-all
+    content_type: text/html
+  - path: /.well-known/agent.json
+    status: 200
+    file: null
+    rejected: catch-all
+    content_type: text/html
+  note: REJECTED AS FALSE POSITIVES. The WordPress front end answers 200 with the full 447KB HTML homepage for every
+    /.well-known/* path, including /.well-known/agent-card.json and /.well-known/agent.json. No body parsed as JSON,
+    so nothing was recorded as a discovery document and no agent card was claimed.
+- host: https://content.pcloudy.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 200
+    file: null
+    rejected: catch-all
+    content_type: text/html
+  - path: /.well-known/openid-configuration
+    status: 200
+    file: null
+    rejected: catch-all
+    content_type: text/html
+  - path: /.well-known/oauth-authorization-server
+    status: 200
+    file: null
+    rejected: catch-all
+    content_type: text/html
+  - path: /.well-known/oauth-protected-resource
+    status: 200
+    file: null
+    rejected: catch-all
+    content_type: text/html
+  - path: /.well-known/api-catalog
+    status: 200
+    file: null
+    rejected: catch-all
+    content_type: text/html
+  - path: /.well-known/ai-plugin.json
+    status: 200
+    file: null
+    rejected: catch-all
+    content_type: text/html
+  - path: /.well-known/agent-card.json
+    status: 200
+    file: null
+    rejected: catch-all
+    content_type: text/html
+  - path: /.well-known/agent.json
+    status: 200
+    file: null
+    rejected: catch-all
+    content_type: text/html
+  note: REJECTED AS FALSE POSITIVES. Every path returns the same 110-byte HTML meta-refresh stub pointing at /apidocs/index.html.

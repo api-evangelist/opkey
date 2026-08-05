@@ -1,0 +1,399 @@
+generated: '2026-08-04'
+method: searched
+source: https://www.pcloudy.com/docs/mcp-server/
+status: published
+server:
+  name: pCloudy-mcp-tool
+  package: pcloudy-mcp
+  registry: pypi
+  version: 0.1.4
+  transport: stdio
+  run: uvx pcloudy-mcp
+  requires: Python >= 3.10 with uv/uvx
+  docs: https://www.pcloudy.com/docs/mcp-server/
+  package_url: https://pypi.org/project/pCloudy-mcp/
+  official: true
+  publisher: pCloudy
+  hosted_remote_endpoint: null
+authentication:
+  style: environment variables consumed by the stdio server
+  variables:
+  - name: PCLOUDY_USERNAME
+    description: pCloudy account username / email.
+  - name: PCLOUDY_API_KEY
+    description: pCloudy API access key from Account Settings -> API.
+  - name: PCLOUDY_CLOUD_URL
+    description: Cloud URL of the pCloudy instance, e.g. https://device.pcloudy.com.
+  note: The server exchanges username + API key for an access token against GET /api/access (the same endpoint the
+    REST API uses) and caches it locally.
+clients_documented:
+- Claude Desktop (claude_desktop_config.json)
+- Cursor (mcp.json)
+released_in: pCloudy 8.5 (QPilot MCP Server)
+tool_count: 36
+tools:
+- name: get_all_application
+  description: Get list of all the application
+  group: App management
+  parameters: []
+- name: upload_app
+  description: This will upload the application to the user account
+  group: App management
+  parameters:
+  - name: file_path
+    type: str
+    required: true
+- name: install_app
+  description: This will install the app on the devices
+  group: App management
+  parameters:
+  - name: app_name
+    type: str
+    required: true
+  - name: rid
+    type: int
+    required: true
+- name: resign_app
+  description: This will re-sign the app to make it available for installation on iOS devices
+  group: App management
+  parameters:
+  - name: file_name
+    type: str
+    required: true
+- name: get_browser_list
+  description: Get list of available browser from pCloudy for specified machines
+  group: Browser cloud booking
+  parameters: []
+- name: book_browser
+  description: Book a browser on a specified VM
+  group: Browser cloud booking
+  parameters:
+  - name: vm_id
+    type: str
+    required: true
+  - name: browser
+    type: str
+    required: true
+  - name: browserVersion
+    type: str
+    required: true
+- name: get_browser_live_view_url
+  description: Get the live view URL for a booked browser session
+  group: Browser cloud booking
+  parameters:
+  - name: vm_id
+    type: str
+    required: true
+  - name: os
+    type: str
+    required: true
+  - name: osVer
+    type: str
+    required: true
+  - name: browser
+    type: str
+    required: true
+  - name: browserVersion
+    type: str
+    required: true
+- name: release_browser
+  description: Release a booked browser on a specified VM
+  group: Browser cloud booking
+  parameters:
+  - name: vm_id
+    type: str
+    required: true
+  - name: booking_id
+    type: str
+    required: true
+- name: get_device_list
+  description: Get list of available devices from pCloudy for specified platform
+  group: Device booking & session
+  parameters:
+  - name: platform
+    type: str
+    required: true
+- name: book_device
+  description: Book a device from pCloudy using device name (e.g.,
+  group: Device booking & session
+  parameters:
+  - name: device_name
+    type: str
+    required: true
+  - name: platform
+    type: str
+    required: false
+- name: get_device_details
+  description: Get detailed information about a specific device by ID
+  group: Device booking & session
+  parameters:
+  - name: device_id
+    type: str
+    required: true
+  - name: platform
+    type: str
+    required: true
+- name: get_live_view_url
+  description: Get live view URL for a booked device
+  group: Device booking & session
+  parameters:
+  - name: rid
+    type: int
+    required: true
+- name: release_device
+  description: Release a booked device using booking ID (RID)
+  group: Device booking & session
+  parameters:
+  - name: rid
+    type: int
+    required: true
+- name: refresh_authentication
+  description: It refresh the user authentication
+  group: Device booking & session
+  parameters: []
+- name: get_qpilot_projects
+  description: Get list of QPilot owned projects
+  group: QPilot AI test authoring
+  parameters: []
+- name: create_qpilot_project
+  description: This will create a new project for Qpilot run
+  group: QPilot AI test authoring
+  parameters:
+  - name: project_name
+    type: str
+    required: true
+- name: get_qpilot_folders
+  description: Get list of QPilot owned folders
+  group: QPilot AI test authoring
+  parameters: []
+- name: create_qpilot_folder
+  description: This will create a new folder for Qpilot run.
+  group: QPilot AI test authoring
+  parameters:
+  - name: folder_name
+    type: str
+    required: true
+  - name: project_id
+    type: str
+    required: true
+- name: get_qpilot_tests
+  description: Get list of QPilot tests and their test steps details, organized by project and folder
+  group: QPilot AI test authoring
+  parameters: []
+- name: create_qpilot_test
+  description: Create a new test in QPilot. Requires folderId to specify which folder the test will be created in.
+    (*mandatory) Requires test name
+  group: QPilot AI test authoring
+  parameters:
+  - name: platform
+    type: str
+    required: true
+  - name: folder_id
+    type: str
+    required: true
+  - name: test_name
+    type: str
+    required: true
+  - name: app_name
+    type: str
+    required: false
+  - name: app_package
+    type: str
+    required: false
+  - name: app_activity
+    type: str
+    required: false
+  - name: bundle_id
+    type: str
+    required: false
+  - name: launch_url
+    type: str
+    required: false
+- name: delete_qpilot_project
+  description: Delete a project in QPilot. Requires project name to specify which project to delete. (*mandatory)
+  group: QPilot AI test authoring
+  parameters:
+  - name: project_name
+    type: str
+    required: true
+- name: delete_qpilot_folder
+  description: Delete a folder in QPilot. Requires folder name to specify which folder to delete. (*mandatory)
+  group: QPilot AI test authoring
+  parameters:
+  - name: folder_name
+    type: str
+    required: true
+- name: delete_qpilot_test
+  description: Delete a test in QPilot. Requires test name to specify which test to delete. (*mandatory)
+  group: QPilot AI test authoring
+  parameters:
+  - name: test_name
+    type: str
+    required: true
+- name: create_qpilot_playground_session
+  description: Create a QPilot playground session for a specific test. Requires test id to specify which test to
+    create a session for. You can get the test list using the get_qpilot_tests tool. (*mandatory) Requires platform
+    information to know which platform to run the session on. All platforms <android/ios/web> (*mandatory) For mobile
+    platforms (android/ios), requires device id to know which device to run the session on. You can get the device
+    list using the get_device_list tool. (*mandatory for mobile) For web platform, requires vm_id, browser name(only
+    chrome allowed) and browser version to know which browser to run the session on. You can get these from the
+    get_browser_list tool. (*mandatory for web)
+  group: QPilot AI test authoring
+  parameters:
+  - name: platform
+    type: str
+    required: true
+  - name: test_id
+    type: str
+    required: true
+  - name: device_id
+    type: int
+    required: false
+  - name: vm_id
+    type: str
+    required: false
+  - name: browser_name
+    type: str
+    required: false
+  - name: browser_version
+    type: str
+    required: false
+- name: close_qpilot_playground_session
+  description: Close an active QPilot playground session for a specific test. Requires test_id to identify which
+    session to close.
+  group: QPilot AI test authoring
+  parameters:
+  - name: test_id
+    type: str
+    required: true
+- name: add_qpilot_step
+  description: Add and execute a single natural language step in an active QPilot playground session. Requires test_id
+    of the active session (*mandatory) and step_content, the natural language description of the action to perform
+    (*mandatory). A playground session must already be open via
+  group: QPilot AI test authoring
+  parameters:
+  - name: test_id
+    type: str
+    required: true
+  - name: step_content
+    type: str
+    required: true
+- name: insert_qpilot_step
+  description: Insert a new step at a specific position in an active QPilot playground session. Requires test_id
+    (*mandatory), insert_at (0-based index where the step will be inserted, *mandatory), and step_content (natural
+    language description, *mandatory). Existing steps at and after insert_at are shifted forward. A playground session
+    must already be open via
+  group: QPilot AI test authoring
+  parameters:
+  - name: test_id
+    type: str
+    required: true
+  - name: insert_at
+    type: int
+    required: true
+  - name: step_content
+    type: str
+    required: true
+- name: delete_qpilot_step
+  description: Delete a step at a specific position in an active QPilot playground session. Requires test_id (*mandatory)
+    and step_idx (0-based index of the step to delete, *mandatory). A playground session must already be open via
+  group: QPilot AI test authoring
+  parameters:
+  - name: test_id
+    type: str
+    required: true
+  - name: step_idx
+    type: int
+    required: true
+- name: restart_qpilot_test
+  description: Restart execution of all steps from the beginning in an active QPilot playground session. Requires
+    test_id (*mandatory). A playground session must already be open via
+  group: QPilot AI test authoring
+  parameters:
+  - name: test_id
+    type: str
+    required: true
+- name: get_qpilot_test_steps
+  description: Get the list of steps for a specific QPilot test, including step ID, index, content, and execution
+    status. Requires test_id (*mandatory). Useful before retrying or deleting a specific step.
+  group: QPilot AI test authoring
+  parameters:
+  - name: test_id
+    type: str
+    required: true
+- name: get_qpilot_test_data
+  description: Get the test data (key-value pairs) stored for a specific QPilot test. Requires test_id (*mandatory).
+  group: QPilot AI test authoring
+  parameters:
+  - name: test_id
+    type: str
+    required: true
+- name: add_qpilot_test_data
+  description: Add or update test data key-value pairs for a QPilot test. Existing keys are preserved; new keys
+    are added and duplicate keys are overwritten. Requires test_id (*mandatory) and test_data as a JSON object string
+    e.g. \'{
+  group: QPilot AI test authoring
+  parameters:
+  - name: test_id
+    type: str
+    required: true
+  - name: test_data
+    type: str
+    required: true
+- name: delete_qpilot_test_data
+  description: Delete specific keys from the test data of a QPilot test. At least one key must remain after deletion.
+    Requires test_id (*mandatory) and keys as a JSON array string e.g. \'[
+  group: QPilot AI test authoring
+  parameters:
+  - name: test_id
+    type: str
+    required: true
+  - name: keys
+    type: str
+    required: true
+- name: modify_qpilot_test_data
+  description: Modify the values of existing keys in the test data of a QPilot test. Only keys that already exist
+    can be modified; use add_qpilot_test_data to add new keys. Requires test_id (*mandatory) and test_data as a
+    JSON object string with the keys to update e.g. \'{
+  group: QPilot AI test authoring
+  parameters:
+  - name: test_id
+    type: str
+    required: true
+  - name: test_data
+    type: str
+    required: true
+- name: retry_qpilot_step
+  description: Retry a single step in an active QPilot playground session. Requires test_id (*mandatory) and step_idx
+    (0-based index of the step to retry, *mandatory). Only that specific step will be re-executed. Use get_qpilot_test_steps
+    to see current steps and their indices. A playground session must already be open via
+  group: QPilot AI test authoring
+  parameters:
+  - name: test_id
+    type: str
+    required: true
+  - name: step_idx
+    type: int
+    required: true
+- name: retry_qpilot_steps_from
+  description: Retry all steps from a specific step onwards (including that step) in an active QPilot playground
+    session. Requires test_id (*mandatory) and step_idx (0-based index of the step to start retrying from, *mandatory).
+    The given step and all steps after it will be re-executed. Use get_qpilot_test_steps to see current steps and
+    their indices. A playground session must already be open via
+  group: QPilot AI test authoring
+  parameters:
+  - name: test_id
+    type: str
+    required: true
+  - name: step_idx
+    type: int
+    required: true
+x-evidence:
+  fetched: '2026-08-04'
+  docs_url: https://www.pcloudy.com/docs/mcp-server/
+  docs_http_status: 200
+  package_url: https://pypi.org/pypi/pCloudy-mcp/json
+  package_http_status: 200
+  tools_source: tool definitions read verbatim from the published pcloudy_mcp-0.1.4-py3-none-any.whl on PyPI (pcloudy_mcp/tools/*.py);
+    the live tools/list could not be introspected anonymously because the server is stdio-only and requires account
+    credentials

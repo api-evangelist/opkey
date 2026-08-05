@@ -1,0 +1,422 @@
+generated: '2026-08-04'
+method: searched
+source: https://content.pcloudy.com/apidocs/index.html
+spec: openapi/opkey-pcloudy-openapi.yml
+note: 'Successful-response payloads transcribed verbatim from the response samples pCloudy publishes on each endpoint
+  page of its API Reference, and mirrored inline into the OpenAPI. Request examples are deliberately NOT carried
+  here: the published curl samples embed live-looking Basic-auth headers and access tokens, which are credential-shaped
+  and are not reproduced.'
+count: 36
+examples:
+- operationId: killApp
+  method: POST
+  path: /api/v2/generic/kill-app
+  summary: Kill App
+  response_200:
+    traceId: 0C7GnIt4TrS9xgS70lrqr
+    requestId: O8WLCAFzLWW1HoBSKQFcU
+    statusCode: 200
+    status: success
+    message: App killed successfully
+- operationId: uninstallApp
+  method: POST
+  path: /api/v2/generic/uninstall-app
+  summary: Uninstall App(V2)
+  response_200:
+    traceId: oVaUsQXEa91HNWMNIaEOo
+    requestId: Int9rwc7JSyWwUBA4hM8h
+    statusCode: 200
+    status: success
+    message: App uninstalled successfully
+- operationId: geoIpLocation
+  method: POST
+  path: /api/v2/generic/geo-ip-location
+  summary: Geo IP Location - Connect
+  response_200:
+    traceId: moNs111FHexL1yJOGne
+    requestId: CI17h3RIHl5zMP7npE6
+    statusCode: 200
+    status: success
+    message: Geo Ip Location Changed Successfully
+- operationId: startStreamer
+  method: POST
+  path: /api/v2/generic/init-liveview
+  summary: Start Streamer
+  response_200:
+    traceId: p6i8FFON1EaaSiRZ3te
+    requestId: 3iKTFULPxb871bRmJE1
+    statusCode: 200
+    status: success
+    message: started kickStartStreamer
+- operationId: setLocation
+  method: POST
+  path: /api/v2/generic/set-location
+  summary: Set Mock GPS Location
+  response_200:
+    traceId: xCmEBrTYSnm1p0RFOVMT
+    requestId: T700EF2wVlmFWwFNwX23
+    statusCode: 200
+    status: success
+    message: Set location set successfully
+    data:
+      isOk: true
+      statusCode: 200
+      data:
+        statusCode: 200
+        message: Location set successfully
+    err: null
+- operationId: setTimezone
+  method: POST
+  path: /api/v2/generic/set-timezone
+  summary: Set Time Zone (iOS)
+  response_200:
+    traceId: QuuvW6Uk5Fu79ZExVMOX
+    requestId: FA3GMyRn5G2qBaxBAC3P
+    statusCode: 200
+    status: success
+    message: Set timezone successfully
+    data:
+      isOk: true
+      statusCode: 200
+      data:
+        statusCode: 200
+        message: Timezone set successfully
+    err: null
+- operationId: downloadSessionVideo
+  method: POST
+  path: /api/v2/download/session-video
+  summary: Downloaded Session Video(V2)
+  response_200:
+    traceId: bLS6gc77E4EA8LGIzh
+    requestId: IDkHKxwC00kQ5S9gp6X
+    statusCode: 200
+    status: success
+    message: Signed video URL generated successfully
+    data:
+      signedUrl: https://pcloudy-observability-stg.s3.eu-west-2.amazonaws.com/privado/178/39955/video-Pixel3XL_2026_May_11_10_01_am__193-1778494404733.mp4?X-Amz-Algorithm=AWS4-HMAC-SHA256&...
+- operationId: enableVideoRecord
+  method: POST
+  path: /api/v2/video-record
+  summary: Enable Video Record
+  response_200:
+    traceId: PqKUQk4IU40k3YgApYg
+    requestId: GftB7PLMq1p8rJltIXV
+    statusCode: 200
+    status: success
+    message: OK
+    data:
+    - message: Session video recording started successfully
+- operationId: videoUploadProgress
+  method: POST
+  path: /api/v2/session-video/upload-progress
+  summary: Video Upload progress(V2)
+  response_200:
+    traceId: hjiudSYlT2JiSf11vny
+    requestId: BBRMIoC1z6ZoMwERm5k
+    statusCode: 200
+    status: success
+    message: Session video upload progress fetched successfully
+    data:
+      rid: 39955
+      status: completed
+      progress: 100
+      progressPercentage: 100
+      bytesReceived: 11754978
+      totalBytes: 11754978
+      startedAt: 1778493784657
+      updatedAt: 1778493791947
+      completedAt: 1778493791947
+- operationId: checkAppInstalled
+  method: POST
+  path: /api/v2/check-app-installed
+  summary: Check App Installed Via Bundle ID
+  response_200:
+    traceId: W0PvAMlrHPgMW5jCgQi
+    requestId: 6mNcLhXLrb2XyLXPJKx
+    statusCode: 200
+    status: success
+    message: App installation status fetched successfully
+    data:
+      status: true
+      isInstalled: true
+- operationId: installApp
+  method: POST
+  path: /api/v2/install-app
+  summary: Install App
+  response_200:
+    traceId: JBSWeoDhE58OjvrqTg4
+    statusCode: 200
+    status: success
+    message: apk/ipa installed successfully
+    data:
+      bundleId: com.pcloudy.demo
+- operationId: startTransaction
+  method: POST
+  path: /api/v2/start-transaction
+  summary: Start Transaction
+  response_200:
+    traceId: QkNmNIxnUgbxjsCbOfU
+    requestId: Ft3PQBMIZFcwlCextEqd8
+    statusCode: 200
+    status: success
+    message: Transaction Operation successful
+- operationId: sendText
+  method: POST
+  path: /api/v2/send-text
+  summary: Send Text
+  response_200:
+    traceId: rvvl8cZniTjpOZc3PjML
+    requestId: 2hdwScztjkJSTbJluNpPx
+    statusCode: 200
+    status: success
+    message: Text sent successfully
+- operationId: rotateDevice
+  method: POST
+  path: /api/v2/rotate-device
+  summary: Rotate Devices
+  response_200:
+    traceId: HENicjFnrTPEwgD8oG3P
+    requestId: AygidMFjGKRj1CTHnVlG
+    statusCode: 200
+    status: success
+    message: Rotate Successful
+- operationId: sendHome
+  method: POST
+  path: /api/v2/send-home
+  summary: Send Home / Click Home
+  response_200:
+    traceId: BQNca3oxFdvxcfRGaFiO
+    requestId: LLUZIiZB2ScmMG1bBVsp
+    statusCode: 200
+    status: success
+    message: Home reached
+- operationId: executeAdb
+  method: POST
+  path: /api/v2/execute-adb
+  summary: Execute ADB - Android
+  response_200:
+    traceId: yQaPaWw3ib98z0HSS4Qw
+    requestId: o9vEkKH0nbljA3wPNGGo
+    statusCode: 200
+    status: OK
+    data: RZCY1020BRV
+- operationId: setPasscodeIos
+  method: POST
+  path: /api/v2/set-passcode
+  summary: Set Passcode iOS
+  response_200:
+    traceId: A6XIN11vsnZZif53w5Fa
+    requestId: fV3Ot1hbNceuWOlwFW9ld
+    statusCode: 200
+    status: success
+    message: success
+- operationId: toggleOfflineModeEnable
+  method: POST
+  path: /api/v2/toggle-offline-mode
+  summary: Toggle Offline Mode Enable iOS
+  response_200:
+    traceId: lt5OviYpzDkAxSRZXAO
+    requestId: zdOW1lwNz2tTc2LcDHfu
+    statusCode: 200
+    status: success
+    message: Offline mode enabled
+    data:
+      isOk: true
+      statusCode: 200
+      data:
+        statusCode: 200
+        message: Enable operation for offline mode Successful
+      err: null
+- operationId: biometricAuthentication
+  method: POST
+  path: /api/fingerprint_auth
+  summary: Biometric Authentication
+  response_200:
+    result:
+      code: 200
+      status: true
+- operationId: injectImage
+  method: POST
+  path: /api/imageInject
+  summary: Inject Image
+  response_200:
+    traceId: fdjixR4A2GBcgiD25Kuc
+    requestId: uA1gWOYKPZ7BqoAaBzx4
+    statusCode: 200
+    status: success
+    message: Successfully Injected
+- operationId: openApp
+  method: POST
+  path: /api/v2/open-app
+  summary: Open App(V2)
+  response_200:
+    traceId: 6TkoDpnTTAyVMRi1H7U
+    requestId: QTaPIWgjwc5IBKSgmR
+    statusCode: 200
+    status: success
+    message: OK
+    data:
+      status: success
+      msg: App Launched
+- operationId: closeApp
+  method: POST
+  path: /api/v2/close-app
+  summary: Close App (V2)
+  response_200:
+    traceId: dpIs1ifa9QUiFd4G8FK
+    requestId: Uf8TABgNagUwoHcObzZ
+    statusCode: 200
+    status: success
+    message: OK
+    data:
+      status: success
+      msg: App closed
+- operationId: lonelyappium
+  method: POST
+  path: /api/lonelyappium
+  summary: Lonelyappium(Automation)- To Make The Session Ongoing
+  response_200:
+    result:
+      raidFolder: /opt/raid-data/data/userV2/30/1/8/
+      code: 200
+      endpoint: https://device.pcloudy.com/appium/hubble/mx9253tyvkc9-587366
+- operationId: bookDevicesAppium
+  method: POST
+  path: /api/appium/init
+  summary: Book Devices For Appium
+  response_200:
+    result:
+      code: 200
+      device_ids:
+      - manufacturer: Samsung
+        model: Galaxy J7 Pro
+        os: android
+        version: 9.0.0
+        capabilities:
+          platformName: Android
+          browserName: '797'
+          deviceName: '797'
+        phoneNumber: ''
+        operatorName: ''
+        networkType: ''
+        rid: '2327492'
+        streamingToken: 20e950de-b131-4c20-9397-64ffa76c7e0f
+- operationId: appiumSession
+  method: POST
+  path: /https://device.pcloudy.com/appium/wd/hub/session
+  summary: Initialize Session
+  response_200:
+    sessionId: 4a3b2c1d-e5f6-7890-abcd-ef1234567890
+    status: 0
+    value:
+      platform: ANDROID
+      deviceName: Samsung Galaxy S23
+      osVersion: '13.0'
+- operationId: xctestBookDevice
+  method: POST
+  path: /api/automationbooking
+  summary: Book Device for Automation
+  response_200:
+    result:
+      code: 200
+      msg: success
+- operationId: startNetworkSimulation
+  method: POST
+  path: /api/v2/networkshaping/start-throttle
+  summary: Start Network Simulation(V2)
+  response_200:
+    traceId: jcmALAwPhaQFlyMKD1Ln
+    requestId: fyQlhbfsPyHDEgroznPk
+    statusCode: 200
+    status: success
+    message: Network throttling started successfully
+- operationId: stopNetworkSimulation
+  method: POST
+  path: /api/v2/networkshaping/stop-throttle
+  summary: Stop Network Simulation(V2)
+  response_200:
+    traceId: verSlmNpNZPgZCUk9NVW
+    requestId: 25cvAJlMqmLBvznTZbb7
+    statusCode: 200
+    status: success
+    message: Network throttling stopped successfully
+- operationId: filesInfo
+  method: POST
+  path: /api/v2/filesinfo
+  summary: Files_Info(V2)
+  response_200:
+    traceId: Rfla3glk3eu5W5100twP
+    requestId: va0bsZkBC5g046aW862E
+    statusCode: 200
+    status: success
+    message: Retrieved files list successfully
+    data:
+    - Files: []
+- operationId: uploadApplication
+  method: POST
+  path: /api/v2/upload
+  summary: Upload Application
+  response_200:
+    result:
+      code: 200
+      msg: success
+- operationId: cleanDevice
+  method: POST
+  path: /api/v2/clean-device
+  summary: Clean_Devices(V2)
+  response_200:
+    traceId: fhcDtmOQbLXxZEITWgVFR
+    requestId: LNqenAilCL4xGihXlwtxb
+    statusCode: 200
+    status: success
+    message: OK
+- operationId: releaseDevice
+  method: POST
+  path: /api/v2/release-device
+  summary: Release Device(V2)
+  response_200:
+    traceId: nCBspvKfayCxhN8ZGugC
+    requestId: plUq82anV9TLBlalAsSgr
+    statusCode: 200
+    status: success
+    message: OK
+- operationId: startDeviceServices
+  method: POST
+  path: /api/startdeviceservices
+  summary: Start Device Services
+  response_200:
+    requestId: 1aa5413b-3a67-402d-84c-09bedf5491fe
+    statusCode: 200
+    status: success
+    message: OK
+    data:
+      message: Automation initiated successfully...
+- operationId: instrumentInitiate
+  method: POST
+  path: /api/app_instrumentation/initiate
+  summary: Instrument Initiate
+  response_200:
+    result:
+      instrumentation_token: cb51e467-09b8-4bda-a0b1-4983395f7e16
+      file: BioMetric1.apk
+      code: 200
+- operationId: instrumentationProgress
+  method: POST
+  path: /api/app_instrumentation/progress
+  summary: Instrumentation Progress
+  response_200:
+    result:
+      instrumentation_token: cb51e467-09b8-4bda-a0b1-4983395f7e16
+      file: 3ee81b06-036c-4b07-b0aa-2a47745e4186.apk
+      percentage_complete: 100
+      code: 200
+- operationId: downloadInstrumentedFile
+  method: POST
+  path: /api/app_instrumentation/download-to-cloud-drive
+  summary: Download Instrumented File
+  response_200:
+    result:
+      instrumentation_token: cb51e467-09b8-4bda-a0b1-4983395f7e16
+      instrumented_file_name: BioMetric1_Sensor1671628875.apk
+      fileId: bf5d2a7a-abe0-4ad6-a93b-593936457f4
+      code: 200

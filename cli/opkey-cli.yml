@@ -1,0 +1,45 @@
+generated: '2026-08-04'
+method: searched
+source:
+- https://www.pcloudy.com/docs/mobile-app-testing/local-testing/wildnet-utility-mobile-app
+- https://www.pcloudy.com/docs/desktop-browser-testing/local-testing/wildnet-utility-desktop-browser
+- https://www.pcloudy.com/docs/mobile-app-testing/advanced/qconnect-local-adb-tunnel
+- https://www.pcloudy.com/docs/ci-cd-tools/jenkins
+note: Opkey/pCloudy does not ship a single general-purpose `opkey` or `pcloudy` CLI covering the REST API. What
+  it does ship is a set of downloadable command-line utilities and a CI/CD runner JAR, documented per surface. The
+  `pcloudy` package on PyPI is a third-party CLI (see packages/) and is not counted here as first-party.
+tools:
+- name: Wildnet
+  kind: local-tunnel-utility
+  official: true
+  purpose: Expose a locally hosted or firewalled application to pCloudy real devices and browsers for local testing.
+  surfaces:
+  - mobile app testing
+  - mobile browser testing
+  - desktop browser testing
+  docs: https://www.pcloudy.com/docs/mobile-app-testing/local-testing/wildnet-utility-mobile-app
+- name: QConnect
+  kind: local-adb-tunnel
+  official: true
+  purpose: Bridge a local ADB session to a booked pCloudy Android device so local tooling can talk to the remote
+    device.
+  docs: https://www.pcloudy.com/docs/mobile-app-testing/advanced/qconnect-local-adb-tunnel
+- name: pCloudy Desktop App (PDA)
+  kind: desktop-agent
+  official: true
+  purpose: Local agent used for desktop-browser local testing setup on Windows and macOS.
+  docs: https://www.pcloudy.com/docs/desktop-browser-testing/local-testing/pda-install
+- name: pcloudy-release-artifacts JAR
+  kind: cicd-runner
+  official: true
+  purpose: Config-driven runner that uploads APKs, books devices and executes tests from a CI pipeline.
+  repo: https://github.com/Smart-Software-Testing-Solutions-Opkey/pcloudy-release-artifacts
+ci_integrations:
+- Jenkins
+- Azure Pipelines
+- Bamboo
+- Bitbucket
+- CircleCI
+- GitLab CI
+- Google Cloud CI
+- Travis CI

@@ -1,0 +1,288 @@
+generated: '2026-08-04'
+method: derived
+source:
+- mcp/opkey-pcloudy-mcp.yml
+- openapi/opkey-pcloudy-openapi.yml
+- pcloudy_mcp-0.1.4 pcloudy_mcp/Constant/constant.py (PcloudyApiEndpoints)
+summary: 'Binds every tool published by the pCloudy MCP server to the pCloudy REST operation(s) that back it. The
+  bindings are not guessed by name: the MCP package ships an explicit PcloudyApiEndpoints table, so each device/app
+  tool resolves to a named REST path. The divergence is the story — 26 of 36 tools reach two backends (Browser Cloud
+  and QPilot) that have no counterpart in the public REST reference, and 79 of 90 documented REST operations have
+  no tool at all.'
+surfaces:
+  openapi:
+    file: openapi/opkey-pcloudy-openapi.yml
+    operations: 90
+    note: Transcribed by API Evangelist from the published pCloudy API Reference; Opkey publishes no OpenAPI document.
+  graphql: null
+  mcp:
+    package: pcloudy-mcp
+    transport: stdio
+    gated: true
+    note: stdio-only and credential-gated, so tools/list cannot be introspected anonymously; the tool set was read
+      from the published wheel.
+crosswalk:
+- tool: refresh_authentication
+  category: Device booking & session
+  rest:
+  - authentication
+  binding: rest
+  confidence: high
+  note: MCP server calls GET <cloud>/api/access (PcloudyApiEndpoints.AUTHENTICATE) with Basic auth and caches the
+    token.
+- tool: get_device_list
+  category: Device booking & session
+  rest:
+  - getDeviceList
+  binding: rest
+  confidence: high
+  note: PcloudyApiEndpoints.GET_DEVICE_LIST = /api/devices.
+- tool: get_device_details
+  category: Device booking & session
+  rest:
+  - getDeviceList
+  binding: rest
+  confidence: medium
+  note: Server-side filter over the same /api/devices response; there is no per-device REST operation in the published
+    reference.
+- tool: book_device
+  category: Device booking & session
+  rest:
+  - bookDevice
+  binding: rest
+  confidence: high
+  note: PcloudyApiEndpoints.BOOK_DEVICE = /api/book_device. The tool resolves a device name to an id first via /api/devices.
+- tool: get_live_view_url
+  category: Device booking & session
+  rest:
+  - getDevicePageUrl
+  binding: rest
+  confidence: high
+  note: PcloudyApiEndpoints.LIVE_VIEW_URL = /api/get_device_url.
+- tool: release_device
+  category: Device booking & session
+  rest:
+  - releaseDeviceLegacy
+  binding: rest
+  confidence: high
+  note: PcloudyApiEndpoints.RELEASE_DEVICE = /api/release_device (the legacy path, not /api/v2/release-device).
+- tool: get_all_application
+  category: App management
+  rest:
+  - getAvailableApps
+  binding: rest
+  confidence: high
+  note: PcloudyApiEndpoints.AVALIABLE_APPS = /api/drive.
+- tool: upload_app
+  category: App management
+  rest:
+  - uploadApp
+  binding: rest
+  confidence: high
+  note: PcloudyApiEndpoints.UPLOAD_APP = /api/upload_file (multipart).
+- tool: install_app
+  category: App management
+  rest:
+  - installLaunchApp
+  binding: rest
+  confidence: high
+  note: PcloudyApiEndpoints.INSTALL_AND_LAUNCH_APP = /api/install_app.
+- tool: resign_app
+  category: App management
+  rest:
+  - initiateResigning
+  - resigningProgress
+  - downloadResigned
+  binding: rest
+  confidence: high
+  note: 'Composite: the tool drives INITIATE_IOS_RESIGN -> PROGRESS_IOS_RESIGN (polled, MAXIMUM_RETRIES_RESIGN_PROGRESS=20)
+    -> DOWNLOAD_IOS_RESIGN.'
+mcp_only:
+- tool: get_browser_list
+  reason: Browser Cloud backend (/api/v1/get-vms on <cloud>-backend.browser.pcloudy.com); not in the published pCloudy
+    REST API reference.
+- tool: book_browser
+  reason: Browser Cloud backend (/api/v1); desktop-browser booking has no operation in the published REST reference.
+- tool: get_browser_live_view_url
+  reason: Composes a browser.<cloud> live-view URL client-side from the booking response; no REST operation.
+- tool: release_browser
+  reason: Browser Cloud backend (/api/v1); no REST operation in the published reference.
+- tool: get_qpilot_projects
+  reason: QPilot backend (qpilot-backend.<cloud>.pcloudy.com /api/v2/project|folder|test|test-step/*, plus a WebSocket
+    step-status stream); the QPilot surface is not documented in the public pCloudy REST API reference.
+- tool: create_qpilot_project
+  reason: QPilot backend (qpilot-backend.<cloud>.pcloudy.com /api/v2/project|folder|test|test-step/*, plus a WebSocket
+    step-status stream); the QPilot surface is not documented in the public pCloudy REST API reference.
+- tool: get_qpilot_folders
+  reason: QPilot backend (qpilot-backend.<cloud>.pcloudy.com /api/v2/project|folder|test|test-step/*, plus a WebSocket
+    step-status stream); the QPilot surface is not documented in the public pCloudy REST API reference.
+- tool: create_qpilot_folder
+  reason: QPilot backend (qpilot-backend.<cloud>.pcloudy.com /api/v2/project|folder|test|test-step/*, plus a WebSocket
+    step-status stream); the QPilot surface is not documented in the public pCloudy REST API reference.
+- tool: get_qpilot_tests
+  reason: QPilot backend (qpilot-backend.<cloud>.pcloudy.com /api/v2/project|folder|test|test-step/*, plus a WebSocket
+    step-status stream); the QPilot surface is not documented in the public pCloudy REST API reference.
+- tool: create_qpilot_test
+  reason: QPilot backend (qpilot-backend.<cloud>.pcloudy.com /api/v2/project|folder|test|test-step/*, plus a WebSocket
+    step-status stream); the QPilot surface is not documented in the public pCloudy REST API reference.
+- tool: delete_qpilot_project
+  reason: QPilot backend (qpilot-backend.<cloud>.pcloudy.com /api/v2/project|folder|test|test-step/*, plus a WebSocket
+    step-status stream); the QPilot surface is not documented in the public pCloudy REST API reference.
+- tool: delete_qpilot_folder
+  reason: QPilot backend (qpilot-backend.<cloud>.pcloudy.com /api/v2/project|folder|test|test-step/*, plus a WebSocket
+    step-status stream); the QPilot surface is not documented in the public pCloudy REST API reference.
+- tool: delete_qpilot_test
+  reason: QPilot backend (qpilot-backend.<cloud>.pcloudy.com /api/v2/project|folder|test|test-step/*, plus a WebSocket
+    step-status stream); the QPilot surface is not documented in the public pCloudy REST API reference.
+- tool: create_qpilot_playground_session
+  reason: QPilot backend (qpilot-backend.<cloud>.pcloudy.com /api/v2/project|folder|test|test-step/*, plus a WebSocket
+    step-status stream); the QPilot surface is not documented in the public pCloudy REST API reference.
+- tool: close_qpilot_playground_session
+  reason: QPilot backend (qpilot-backend.<cloud>.pcloudy.com /api/v2/project|folder|test|test-step/*, plus a WebSocket
+    step-status stream); the QPilot surface is not documented in the public pCloudy REST API reference.
+- tool: add_qpilot_step
+  reason: QPilot backend (qpilot-backend.<cloud>.pcloudy.com /api/v2/project|folder|test|test-step/*, plus a WebSocket
+    step-status stream); the QPilot surface is not documented in the public pCloudy REST API reference.
+- tool: insert_qpilot_step
+  reason: QPilot backend (qpilot-backend.<cloud>.pcloudy.com /api/v2/project|folder|test|test-step/*, plus a WebSocket
+    step-status stream); the QPilot surface is not documented in the public pCloudy REST API reference.
+- tool: delete_qpilot_step
+  reason: QPilot backend (qpilot-backend.<cloud>.pcloudy.com /api/v2/project|folder|test|test-step/*, plus a WebSocket
+    step-status stream); the QPilot surface is not documented in the public pCloudy REST API reference.
+- tool: restart_qpilot_test
+  reason: QPilot backend (qpilot-backend.<cloud>.pcloudy.com /api/v2/project|folder|test|test-step/*, plus a WebSocket
+    step-status stream); the QPilot surface is not documented in the public pCloudy REST API reference.
+- tool: get_qpilot_test_steps
+  reason: QPilot backend (qpilot-backend.<cloud>.pcloudy.com /api/v2/project|folder|test|test-step/*, plus a WebSocket
+    step-status stream); the QPilot surface is not documented in the public pCloudy REST API reference.
+- tool: get_qpilot_test_data
+  reason: QPilot backend (qpilot-backend.<cloud>.pcloudy.com /api/v2/project|folder|test|test-step/*, plus a WebSocket
+    step-status stream); the QPilot surface is not documented in the public pCloudy REST API reference.
+- tool: add_qpilot_test_data
+  reason: QPilot backend (qpilot-backend.<cloud>.pcloudy.com /api/v2/project|folder|test|test-step/*, plus a WebSocket
+    step-status stream); the QPilot surface is not documented in the public pCloudy REST API reference.
+- tool: delete_qpilot_test_data
+  reason: QPilot backend (qpilot-backend.<cloud>.pcloudy.com /api/v2/project|folder|test|test-step/*, plus a WebSocket
+    step-status stream); the QPilot surface is not documented in the public pCloudy REST API reference.
+- tool: modify_qpilot_test_data
+  reason: QPilot backend (qpilot-backend.<cloud>.pcloudy.com /api/v2/project|folder|test|test-step/*, plus a WebSocket
+    step-status stream); the QPilot surface is not documented in the public pCloudy REST API reference.
+- tool: retry_qpilot_step
+  reason: QPilot backend (qpilot-backend.<cloud>.pcloudy.com /api/v2/project|folder|test|test-step/*, plus a WebSocket
+    step-status stream); the QPilot surface is not documented in the public pCloudy REST API reference.
+- tool: retry_qpilot_steps_from
+  reason: QPilot backend (qpilot-backend.<cloud>.pcloudy.com /api/v2/project|folder|test|test-step/*, plus a WebSocket
+    step-status stream); the QPilot surface is not documented in the public pCloudy REST API reference.
+rest_only:
+- capability: Apk Instrumentation
+  operations:
+  - downloadInstrumentedFile
+  - instrumentInitiate
+  - instrumentationProgress
+- capability: Apk Instrumentation Apis
+  operations:
+  - downloadInstrumented
+  - instrumentInitiateLegacy
+  - instrumentationProgressLegacy
+- capability: App Center Api
+  operations:
+  - appCenterReleaseDetails
+  - appCenterReleases
+  - deleteAppCenterApp
+  - downloadUploadAppCenter
+  - getAppCenterApps
+- capability: App Control
+  operations:
+  - checkAppInstalled
+  - closeApp
+  - installApp
+  - openApp
+- capability: Appium Automation
+  operations:
+  - appiumSession
+  - appiumShareableLink
+  - bookDevicesAppium
+  - bookDevicesAppiumLegacy
+  - downloadAppiumPerf
+  - getAppiumEndpoint
+  - getAppiumFileList
+  - getAppiumReport
+  - initAppiumhub
+  - lonelyappium
+  - updateAppiumSession
+- capability: Device Booking & Session
+  operations:
+  - cleanDevice
+  - releaseDevice
+  - startDeviceServices
+- capability: Device Interaction
+  operations:
+  - biometricAuthentication
+  - executeAdb
+  - injectImage
+  - rotateDevice
+  - sendHome
+  - sendText
+  - setPasscodeIos
+  - toggleOfflineModeEnable
+- capability: File Management
+  operations:
+  - filesInfo
+  - uploadApplication
+- capability: Generic
+  operations:
+  - biometricAuth
+  - captureScreenshot
+  - deleteFileCloud
+  - downloadFileCloud
+  - downloadPerformance
+  - executeAdbLegacy
+  - geoIpLocation
+  - getSingleDevice
+  - getUserDetails
+  - killApp
+  - performanceFileList
+  - pushFile
+  - qrImageInject
+  - sessionDetails
+  - setDeviceLocationLegacy
+  - setLocation
+  - setTimezone
+  - startDeviceServicesLegacy
+  - startPerformance
+  - startStreamer
+  - toggleWifi
+  - uninstallApp
+  - wildnet
+- capability: Network Simulation
+  operations:
+  - getNetworkProfiles
+  - setNetworkProfile
+  - startNetworkSimulation
+  - stopNetworkSimulation
+  - unshapeNetwork
+- capability: Performance
+  operations:
+  - startTransaction
+- capability: Session Media & Logs
+  operations:
+  - crashLogsDownload
+  - deviceLogsDownload
+  - downloadSessionVideo
+  - enableVideoRecord
+  - videoUploadProgress
+- capability: Xctest Automation
+  operations:
+  - xctestBookDevice
+  - xctestBookDevices
+  - xctestInitAutomation
+  - xctestReleaseDevices
+  - xctestShareableLink
+  - xctestStartServices
+coverage:
+  tools_total: 36
+  tools_bound_to_rest: 10
+  tools_mcp_only: 26
+  rest_operations_total: 90
+  rest_operations_with_a_tool: 11
+  rest_operations_without_a_tool: 79

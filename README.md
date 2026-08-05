@@ -42,5 +42,37 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Opkey is a company surfaced via the API Evangelist harvest backlog (source: secondary-market) and added to the network as a stub for full-pipeline profiling.
-- https://forgeglobal.com/opkey_stock/
+Opkey (Smart Software Testing Solutions, Inc.) is a Cloud Application Lifecycle Management and
+AI-powered test automation vendor for enterprise packaged applications — Oracle Cloud/EBS, Workday,
+Salesforce, SAP, Coupa, Veeva, UKG and Microsoft Dynamics.
+
+Opkey's public developer surface lives on **pCloudy**, the real-device mobile and browser testing
+cloud it operates. The core Opkey product help and user guides are **not** public — everything under
+`www.opkey.com/Help/docs/` 301-redirects to a Freshdesk customer hub that requires a login. pCloudy's
+documentation, API reference and release notes are public.
+
+## What is profiled here
+
+| Surface | Where |
+|---|---|
+| pCloudy Device Cloud API — 90 documented operations | `openapi/` (transcribed; Opkey publishes no OpenAPI) |
+| pCloudy MCP server — 36 tools, `uvx pcloudy-mcp` | `mcp/` |
+| MCP → REST tool crosswalk | `mcp/opkey-tool-crosswalk.yml` |
+| Auth, conventions, errors, lifecycle, data model | `authentication/` `conventions/` `errors/` `lifecycle/` `data-model/` |
+| Packages, CLI utilities, sandbox, changelog | `packages/` `cli/` `sandbox/` `changelog/` |
+| Agent skills grounded in real operationIds | `skills/` |
+
+**Provenance note.** `openapi/opkey-pcloudy-openapi.yml` is an API Evangelist transcription of the
+operations, parameters and response samples Opkey publishes at
+<https://content.pcloudy.com/apidocs/>. It is a third-party artifact, not a provider document.
+Opkey does not publish a machine-readable specification.
+
+## Links
+
+- Company — https://www.opkey.com/
+- pCloudy docs — https://www.pcloudy.com/docs/
+- pCloudy API reference — https://content.pcloudy.com/apidocs/index.html
+- pCloudy MCP server — https://www.pcloudy.com/docs/mcp-server/
+- Security & Trust — https://www.opkey.com/security-and-trust
+- GitHub — https://github.com/Smart-Software-Testing-Solutions-Opkey
+- Secondary-market listing (original harvest source) — https://forgeglobal.com/opkey_stock/

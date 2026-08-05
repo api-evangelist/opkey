@@ -1,0 +1,79 @@
+generated: '2026-08-04'
+method: searched
+source:
+- https://www.opkey.com/security-and-trust
+- openapi/opkey-pcloudy-openapi.yml
+- https://content.pcloudy.com/apidocs/index.html
+standards:
+- id: oauth2
+  conforms: false
+  evidence: No oauth2 securityScheme in the spec and no OAuth flow documented; auth is HTTP Basic to mint a bearer-style
+    access token passed in a `token` header.
+- id: oidc
+  conforms: false
+  evidence: No /.well-known/openid-configuration on any host (404/302/catch-all).
+- id: http-basic-auth
+  conforms: true
+  evidence: GET /api/access authenticates with RFC 7617 HTTP Basic (email:accessKey).
+- id: rfc9457-problem-details
+  conforms: false
+  evidence: No application/problem+json responses; errors are returned in the vendor JSON envelope (statusCode/status/message,
+    or result.error on legacy paths).
+- id: rest-json
+  conforms: true
+  evidence: 'Resource-oriented URLs, Content-Type: application/json on requests, JSON responses, per the published
+    API reference.'
+- id: idempotency-keys
+  conforms: false
+  evidence: No Idempotency-Key header or equivalent documented on any of the 90 operations.
+- id: pagination
+  conforms: false
+  evidence: No cursor/offset pagination convention; list operations take a `limit` on /api/drive only.
+- id: webhooks
+  conforms: false
+  evidence: No webhook catalog published; QPilot pushes step events over an internal WebSocket, not a documented
+    subscriber-facing event surface.
+- id: asyncapi
+  conforms: false
+  evidence: No AsyncAPI document published on any host or in the GitHub org.
+- id: mcp
+  conforms: true
+  evidence: Official pcloudy-mcp server (PyPI 0.1.4) exposing 36 tools over stdio; released in pCloudy 8.5.
+- id: a2a
+  conforms: false
+  evidence: No agent card at /.well-known/agent-card.json or /.well-known/agent.json on any host; the two 200s observed
+    were HTML catch-alls and were rejected.
+- id: webdriver-appium
+  conforms: true
+  evidence: pCloudy exposes an Appium/WebDriver hub endpoint (https://device.pcloudy.com/appiumcloud/wd/hub) and
+    documents desired capabilities.
+compliance_program:
+  published: true
+  url: https://www.opkey.com/security-and-trust
+  certifications:
+  - SOC 1 Type II
+  - SOC 2 Type II
+  - ISO/IEC 27001:2022
+  - ISO/IEC 27017
+  - ISO/IEC 27018:2019
+  - ISO/IEC 27701:2019
+  - ISO 42001:2023
+  - ISO 9001:2015
+  - ISO 14001:2015
+  - ISO 22301:2019
+  - ISO 45001:2018
+  - ISO/IEC 20000-1:2018
+  - Cyber Essentials
+  - Cyber Essentials Plus
+  - CSA STAR Level 1
+  regulatory_frameworks:
+  - GDPR
+  - CCPA
+  - HIPAA
+  - SOX
+  - PCI DSS
+  - DPDPA
+  - GxP/GLP/GMP
+  note: Certifications are asserted on the Security & Trust marketing page. There is no trust portal, no downloadable
+    report request flow, and no machine-readable attestation, so this is a published claim rather than a verifiable
+    trust center.

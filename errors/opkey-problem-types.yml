@@ -1,0 +1,51 @@
+generated: '2026-08-04'
+method: derived
+source:
+- openapi/opkey-pcloudy-openapi.yml
+- https://content.pcloudy.com/apidocs/index.html
+format: vendor-json-envelope
+note: 'pCloudy does not use RFC 9457 problem+json. Two envelopes are in play. The newer /api/v2/* operations return
+  {traceId, requestId, statusCode, status, message}; `status` carries success/OK on the happy path and the failure
+  text otherwise, and traceId/requestId are the correlation handles to quote in support. The legacy /api/* operations
+  wrap everything in {"result": {...}} and surface failures as result.error with an HTTP 200. The published reference
+  documents no error-code registry, so there is no enumerable catalog to harvest — these are the shapes, not a code
+  list.'
+envelopes:
+- id: v2
+  applies_to: /api/v2/* operations
+  shape:
+    traceId: string
+    requestId: string
+    statusCode: integer
+    status: string
+    message: string
+  correlation_fields:
+  - traceId
+  - requestId
+  example_source: published response samples in the pCloudy API Reference
+- id: legacy
+  applies_to: /api/* operations (v1)
+  shape:
+    result:
+      code: integer
+      error: string (present on failure)
+      token: string (on /api/access)
+  correlation_fields: []
+  note: Failures are commonly returned inside result.error with a 200 status line; callers must inspect the body,
+    not the status code.
+problems:
+- status: 401
+  title: Unauthorized
+  detail: Missing, expired or invalid access token in the `token` header (or `token` body field on legacy paths).
+  remediation: Re-mint a token with GET /api/access using HTTP Basic (email + access key). The pCloudy MCP server
+    caches tokens for 5 days and re-authenticates on rejection.
+  source_operation: openapi/opkey-pcloudy-openapi.yml (all 90 operations declare 401)
+- status: 200
+  title: Envelope-level error (legacy)
+  detail: Legacy /api/* operations can return HTTP 200 with result.error set; the transport status is not the outcome.
+  remediation: Always read result.error before treating a legacy call as successful.
+  source_operation: openapi/opkey-pcloudy-openapi.yml#authentication
+gaps:
+- No documented error-code registry or catalogue of failure reasons.
+- No RFC 9457 application/problem+json.
+- No documented retry-after or rate-limit error signal.

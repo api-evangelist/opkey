@@ -1,0 +1,42 @@
+generated: '2026-08-04'
+method: searched
+source:
+- https://www.pcloudy.com/pricing
+- https://content.pcloudy.com/apidocs/index.html
+- https://www.pcloudy.com/docs/appium/
+note: pCloudy has no separate test-mode key or simulated environment — the product IS a real-device cloud, so 'sandbox'
+  here means the free trial account plus the demo cloud and demo app the documentation uses in every example. There
+  are no test cards, test clocks or fixture triggers because there is nothing to simulate. Every value below is
+  published by pCloudy; nothing was invented.
+test_vs_live:
+  separated: false
+  note: One credential set. The same email + access key mints the same token against trial and paid tenants; the
+    tenant is selected by <Cloud URL>.
+free_trial:
+  available: true
+  credit_card_required: false
+  signup: https://device.pcloudy.com/signup
+  pricing: https://www.pcloudy.com/pricing
+  note: All plans (Live/Manual Testing and Automated Testing) come with a free trial.
+demo_cloud:
+  host: https://demo.pcloudy.com
+  note: The host every second curl example in the published API reference is written against.
+demo_artifacts:
+- kind: android-demo-app
+  package: com.pcloudy.appiumdemo
+  file: pCloudy_Appium_Demo.apk
+  note: The demo APK used across the API reference and Appium guides for install/launch/kill examples.
+cloud_hosts_documented:
+- device.pcloudy.com
+- demo.pcloudy.com
+- us.pcloudy.com
+- sg.pcloudy.com
+- uae.pcloudy.com
+- ind-west.pcloudy.com
+- ind-west2.pcloudy.com
+appium_hub: https://device.pcloudy.com/appiumcloud/wd/hub
+gaps:
+- No test-mode key prefix.
+- No time simulation / test clocks.
+- No fixture or event-trigger tooling.
+- No published sandbox rate or device-minute allowance.
