@@ -35,52 +35,16 @@ tags:
 - Agents
 - MCP
 apis:
-- aid: opkey:pcloudy-api
-  name: pCloudy Device Cloud API
-  description: 'The public REST API for pCloudy, the real-device mobile and browser
-    testing cloud operated by Opkey. It follows resource-oriented URLs, defaults every
-    method to POST except authentication, and returns JSON. Coverage spans authentication
-    and access tokens, device listing/booking/release and session lifecycle, app upload
-    to the cloud drive, install/launch/kill/uninstall, device interaction (tap, swipe,
-    text, rotate, home, ADB), session media and logs (screenshots, video, device and
-    crash logs), app and device performance capture, network simulation profiles,
-    APK instrumentation, iOS app resigning, App Center integration, and Appium and
-    XCTest automation orchestration.'
-  humanURL: https://www.pcloudy.com/docs/api-reference/
-  baseURL: https://device.pcloudy.com
-  tags:
-  - Mobile Testing
-  - Device Cloud
-  - Test Automation
-  - Appium
-  - XCTest
-  properties:
-  - type: OpenAPI
-    url: openapi/opkey-pcloudy-openapi.yml
-  - type: APIReference
-    url: https://content.pcloudy.com/apidocs/index.html
-  - type: Documentation
-    url: https://www.pcloudy.com/docs/
-  - type: Authentication
-    url: authentication/opkey-authentication.yml
-  - type: Overlay
-    url: overlays/opkey-pcloudy-overlay.yaml
-  - type: DataModel
-    url: data-model/opkey-data-model.yml
-  - type: ErrorCatalog
-    url: errors/opkey-problem-types.yml
-  - type: Examples
-    url: examples/opkey-pcloudy-examples.yml
 - aid: opkey:pcloudy-mcp
   name: pCloudy MCP Server
-  description: 'The official pCloudy MCP server, published by pCloudy as the Python
-    package pcloudy-mcp and run over stdio with uvx. It exposes 36 tools across four
-    groups — device booking, browser booking, app management, and QPilot AI test
-    authoring — letting an MCP client list and book real devices and browsers, upload,
-    install and resign apps, create projects/folders/tests, drive a QPilot playground
-    session in natural-language steps, and manage test data. Authentication is by
-    pCloudy username plus API key supplied as environment variables; the server mints
-    and caches an access token against the same /api/access endpoint the REST API uses.'
+  description: >-
+    The official pCloudy MCP server, published by pCloudy as the Python package pcloudy-mcp and run over
+    stdio with uvx. It exposes 36 tools across four groups — device booking, browser booking, app management,
+    and QPilot AI test authoring — letting an MCP client list and book real devices and browsers, upload,
+    install and resign apps, create projects/folders/tests, drive a QPilot playground session in natural-language
+    steps, and manage test data. Authentication is by pCloudy username plus API key supplied as environment
+    variables; the server mints and caches an access token against the same /api/access endpoint the REST
+    API uses.
   humanURL: https://www.pcloudy.com/docs/mcp-server/
   baseURL: https://device.pcloudy.com
   tags:
@@ -94,12 +58,346 @@ apis:
     url: mcp/opkey-tool-crosswalk.yml
   - type: Documentation
     url: https://www.pcloudy.com/docs/mcp-server/
+- aid: opkey:opkey-apk-instrumentation-api
+  name: Opkey Apk Instrumentation API
+  description: The Apk Instrumentation API from Opkey — 3 operation(s) for apk instrumentation.
+  humanURL: https://www.pcloudy.com/docs/api-reference/
+  baseURL: https://device.pcloudy.com
+  tags:
+  - Apk Instrumentation
+  properties:
+  - type: OpenAPI
+    url: openapi/opkey-apk-instrumentation-api-openapi.yml
+  - type: APIReference
+    url: https://content.pcloudy.com/apidocs/index.html
+  - type: Documentation
+    url: https://www.pcloudy.com/docs/
+  - type: Authentication
+    url: authentication/opkey-authentication.yml
+  - type: DataModel
+    url: data-model/opkey-data-model.yml
+  - type: ErrorCatalog
+    url: errors/opkey-problem-types.yml
+  - type: Examples
+    url: examples/opkey-pcloudy-examples.yml
+- aid: opkey:opkey-apk-instrumentation-apis-api
+  name: Opkey Apk Instrumentation Apis API
+  description: >-
+    The Apk Instrumentation Apis API from Opkey — 3 operation(s) for apk instrumentation apis.
+  humanURL: https://www.pcloudy.com/docs/api-reference/
+  baseURL: https://device.pcloudy.com
+  tags:
+  - Apk Instrumentation Apis
+  properties:
+  - type: OpenAPI
+    url: openapi/opkey-apk-instrumentation-apis-api-openapi.yml
+  - type: APIReference
+    url: https://content.pcloudy.com/apidocs/index.html
+  - type: Documentation
+    url: https://www.pcloudy.com/docs/
+  - type: Authentication
+    url: authentication/opkey-authentication.yml
+  - type: DataModel
+    url: data-model/opkey-data-model.yml
+  - type: ErrorCatalog
+    url: errors/opkey-problem-types.yml
+  - type: Examples
+    url: examples/opkey-pcloudy-examples.yml
+- aid: opkey:opkey-app-center-api-api
+  name: Opkey App Center Api API
+  description: The App Center Api API from Opkey — 5 operation(s) for app center api.
+  humanURL: https://www.pcloudy.com/docs/api-reference/
+  baseURL: https://device.pcloudy.com
+  tags:
+  - App Center Api
+  properties:
+  - type: OpenAPI
+    url: openapi/opkey-app-center-api-api-openapi.yml
+  - type: APIReference
+    url: https://content.pcloudy.com/apidocs/index.html
+  - type: Documentation
+    url: https://www.pcloudy.com/docs/
+  - type: Authentication
+    url: authentication/opkey-authentication.yml
+  - type: DataModel
+    url: data-model/opkey-data-model.yml
+  - type: ErrorCatalog
+    url: errors/opkey-problem-types.yml
+  - type: Examples
+    url: examples/opkey-pcloudy-examples.yml
+- aid: opkey:opkey-app-control-api
+  name: Opkey App Control API
+  description: The App Control API from Opkey — 4 operation(s) for app control.
+  humanURL: https://www.pcloudy.com/docs/api-reference/
+  baseURL: https://device.pcloudy.com
+  tags:
+  - App Control
+  properties:
+  - type: OpenAPI
+    url: openapi/opkey-app-control-api-openapi.yml
+  - type: APIReference
+    url: https://content.pcloudy.com/apidocs/index.html
+  - type: Documentation
+    url: https://www.pcloudy.com/docs/
+  - type: Authentication
+    url: authentication/opkey-authentication.yml
+  - type: DataModel
+    url: data-model/opkey-data-model.yml
+  - type: ErrorCatalog
+    url: errors/opkey-problem-types.yml
+  - type: Examples
+    url: examples/opkey-pcloudy-examples.yml
+- aid: opkey:opkey-appium-automation-api
+  name: Opkey Appium Automation API
+  description: The Appium Automation API from Opkey — 11 operation(s) for appium automation.
+  humanURL: https://www.pcloudy.com/docs/api-reference/
+  baseURL: https://device.pcloudy.com
+  tags:
+  - Appium Automation
+  properties:
+  - type: OpenAPI
+    url: openapi/opkey-appium-automation-api-openapi.yml
+  - type: APIReference
+    url: https://content.pcloudy.com/apidocs/index.html
+  - type: Documentation
+    url: https://www.pcloudy.com/docs/
+  - type: Authentication
+    url: authentication/opkey-authentication.yml
+  - type: DataModel
+    url: data-model/opkey-data-model.yml
+  - type: ErrorCatalog
+    url: errors/opkey-problem-types.yml
+  - type: Examples
+    url: examples/opkey-pcloudy-examples.yml
+- aid: opkey:opkey-authentication-api
+  name: Opkey Authentication API
+  description: The Authentication API from Opkey — 1 operation(s) for authentication.
+  humanURL: https://www.pcloudy.com/docs/api-reference/
+  baseURL: https://device.pcloudy.com
+  tags:
+  - Authentication
+  properties:
+  - type: OpenAPI
+    url: openapi/opkey-authentication-api-openapi.yml
+  - type: APIReference
+    url: https://content.pcloudy.com/apidocs/index.html
+  - type: Documentation
+    url: https://www.pcloudy.com/docs/
+  - type: Authentication
+    url: authentication/opkey-authentication.yml
+  - type: DataModel
+    url: data-model/opkey-data-model.yml
+  - type: ErrorCatalog
+    url: errors/opkey-problem-types.yml
+  - type: Examples
+    url: examples/opkey-pcloudy-examples.yml
+- aid: opkey:opkey-device-booking-session-api
+  name: Opkey Device Booking & Session API
+  description: >-
+    The Device Booking & Session API from Opkey — 3 operation(s) for device booking & session.
+  humanURL: https://www.pcloudy.com/docs/api-reference/
+  baseURL: https://device.pcloudy.com
+  tags:
+  - Device Booking & Session
+  properties:
+  - type: OpenAPI
+    url: openapi/opkey-device-booking-session-api-openapi.yml
+  - type: APIReference
+    url: https://content.pcloudy.com/apidocs/index.html
+  - type: Documentation
+    url: https://www.pcloudy.com/docs/
+  - type: Authentication
+    url: authentication/opkey-authentication.yml
+  - type: DataModel
+    url: data-model/opkey-data-model.yml
+  - type: ErrorCatalog
+    url: errors/opkey-problem-types.yml
+  - type: Examples
+    url: examples/opkey-pcloudy-examples.yml
+- aid: opkey:opkey-device-interaction-api
+  name: Opkey Device Interaction API
+  description: The Device Interaction API from Opkey — 8 operation(s) for device interaction.
+  humanURL: https://www.pcloudy.com/docs/api-reference/
+  baseURL: https://device.pcloudy.com
+  tags:
+  - Device Interaction
+  properties:
+  - type: OpenAPI
+    url: openapi/opkey-device-interaction-api-openapi.yml
+  - type: APIReference
+    url: https://content.pcloudy.com/apidocs/index.html
+  - type: Documentation
+    url: https://www.pcloudy.com/docs/
+  - type: Authentication
+    url: authentication/opkey-authentication.yml
+  - type: DataModel
+    url: data-model/opkey-data-model.yml
+  - type: ErrorCatalog
+    url: errors/opkey-problem-types.yml
+  - type: Examples
+    url: examples/opkey-pcloudy-examples.yml
+- aid: opkey:opkey-file-management-api
+  name: Opkey File Management API
+  description: The File Management API from Opkey — 2 operation(s) for file management.
+  humanURL: https://www.pcloudy.com/docs/api-reference/
+  baseURL: https://device.pcloudy.com
+  tags:
+  - File Management
+  properties:
+  - type: OpenAPI
+    url: openapi/opkey-file-management-api-openapi.yml
+  - type: APIReference
+    url: https://content.pcloudy.com/apidocs/index.html
+  - type: Documentation
+    url: https://www.pcloudy.com/docs/
+  - type: Authentication
+    url: authentication/opkey-authentication.yml
+  - type: DataModel
+    url: data-model/opkey-data-model.yml
+  - type: ErrorCatalog
+    url: errors/opkey-problem-types.yml
+  - type: Examples
+    url: examples/opkey-pcloudy-examples.yml
+- aid: opkey:opkey-generic-api
+  name: Opkey Generic API
+  description: The Generic API from Opkey — 30 operation(s) for generic.
+  humanURL: https://www.pcloudy.com/docs/api-reference/
+  baseURL: https://device.pcloudy.com
+  tags:
+  - Generic
+  properties:
+  - type: OpenAPI
+    url: openapi/opkey-generic-api-openapi.yml
+  - type: APIReference
+    url: https://content.pcloudy.com/apidocs/index.html
+  - type: Documentation
+    url: https://www.pcloudy.com/docs/
+  - type: Authentication
+    url: authentication/opkey-authentication.yml
+  - type: DataModel
+    url: data-model/opkey-data-model.yml
+  - type: ErrorCatalog
+    url: errors/opkey-problem-types.yml
+  - type: Examples
+    url: examples/opkey-pcloudy-examples.yml
+- aid: opkey:opkey-network-simulation-api
+  name: Opkey Network Simulation API
+  description: The Network Simulation API from Opkey — 5 operation(s) for network simulation.
+  humanURL: https://www.pcloudy.com/docs/api-reference/
+  baseURL: https://device.pcloudy.com
+  tags:
+  - Network Simulation
+  properties:
+  - type: OpenAPI
+    url: openapi/opkey-network-simulation-api-openapi.yml
+  - type: APIReference
+    url: https://content.pcloudy.com/apidocs/index.html
+  - type: Documentation
+    url: https://www.pcloudy.com/docs/
+  - type: Authentication
+    url: authentication/opkey-authentication.yml
+  - type: DataModel
+    url: data-model/opkey-data-model.yml
+  - type: ErrorCatalog
+    url: errors/opkey-problem-types.yml
+  - type: Examples
+    url: examples/opkey-pcloudy-examples.yml
+- aid: opkey:opkey-performance-api
+  name: Opkey Performance API
+  description: The Performance API from Opkey — 1 operation(s) for performance.
+  humanURL: https://www.pcloudy.com/docs/api-reference/
+  baseURL: https://device.pcloudy.com
+  tags:
+  - Performance
+  properties:
+  - type: OpenAPI
+    url: openapi/opkey-performance-api-openapi.yml
+  - type: APIReference
+    url: https://content.pcloudy.com/apidocs/index.html
+  - type: Documentation
+    url: https://www.pcloudy.com/docs/
+  - type: Authentication
+    url: authentication/opkey-authentication.yml
+  - type: DataModel
+    url: data-model/opkey-data-model.yml
+  - type: ErrorCatalog
+    url: errors/opkey-problem-types.yml
+  - type: Examples
+    url: examples/opkey-pcloudy-examples.yml
+- aid: opkey:opkey-resigning-apis-api
+  name: Opkey Resigning Apis API
+  description: The Resigning Apis API from Opkey — 3 operation(s) for resigning apis.
+  humanURL: https://www.pcloudy.com/docs/api-reference/
+  baseURL: https://device.pcloudy.com
+  tags:
+  - Resigning Apis
+  properties:
+  - type: OpenAPI
+    url: openapi/opkey-resigning-apis-api-openapi.yml
+  - type: APIReference
+    url: https://content.pcloudy.com/apidocs/index.html
+  - type: Documentation
+    url: https://www.pcloudy.com/docs/
+  - type: Authentication
+    url: authentication/opkey-authentication.yml
+  - type: DataModel
+    url: data-model/opkey-data-model.yml
+  - type: ErrorCatalog
+    url: errors/opkey-problem-types.yml
+  - type: Examples
+    url: examples/opkey-pcloudy-examples.yml
+- aid: opkey:opkey-session-media-logs-api
+  name: Opkey Session Media & Logs API
+  description: The Session Media & Logs API from Opkey — 5 operation(s) for session media & logs.
+  humanURL: https://www.pcloudy.com/docs/api-reference/
+  baseURL: https://device.pcloudy.com
+  tags:
+  - Session Media & Logs
+  properties:
+  - type: OpenAPI
+    url: openapi/opkey-session-media-logs-api-openapi.yml
+  - type: APIReference
+    url: https://content.pcloudy.com/apidocs/index.html
+  - type: Documentation
+    url: https://www.pcloudy.com/docs/
+  - type: Authentication
+    url: authentication/opkey-authentication.yml
+  - type: DataModel
+    url: data-model/opkey-data-model.yml
+  - type: ErrorCatalog
+    url: errors/opkey-problem-types.yml
+  - type: Examples
+    url: examples/opkey-pcloudy-examples.yml
+- aid: opkey:opkey-xctest-automation-api
+  name: Opkey Xctest Automation API
+  description: The Xctest Automation API from Opkey — 6 operation(s) for xctest automation.
+  humanURL: https://www.pcloudy.com/docs/api-reference/
+  baseURL: https://device.pcloudy.com
+  tags:
+  - Xctest Automation
+  properties:
+  - type: OpenAPI
+    url: openapi/opkey-xctest-automation-api-openapi.yml
+  - type: APIReference
+    url: https://content.pcloudy.com/apidocs/index.html
+  - type: Documentation
+    url: https://www.pcloudy.com/docs/
+  - type: Authentication
+    url: authentication/opkey-authentication.yml
+  - type: DataModel
+    url: data-model/opkey-data-model.yml
+  - type: ErrorCatalog
+    url: errors/opkey-problem-types.yml
+  - type: Examples
+    url: examples/opkey-pcloudy-examples.yml
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: Overlay
+  url: overlays/opkey-pcloudy-overlay.yaml
 - type: AgenticAccess
   url: agentic-access/opkey-agentic-access.yml
 - type: DomainSecurity
