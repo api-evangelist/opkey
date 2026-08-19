@@ -1,0 +1,265 @@
+{
+  "item": [
+    {
+      "id": "667e77cc-8d39-476c-9aba-a18a98912fda",
+      "name": "Performance",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "363ca3f4-34b7-4d1a-8d1a-90c902b6dfc3",
+          "name": "Start Transaction",
+          "request": {
+            "name": "Start Transaction",
+            "description": {
+              "content": "Starts a named performance transaction on the device to measure a discrete user flow, optionally enabling HAR network capture for the transaction window. Used to mark the beginning of a segment for which performance metrics (and network traffic) should be collected; close it with the stop-transaction call.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v2",
+                "start-transaction"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "pCloudy cloud host prefix; the docs refer to this as <Cloud URL>. (This can only be one of device,demo,aus)",
+                  "type": "any",
+                  "value": "{{cloud}}",
+                  "key": "cloud"
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) API access token (from /api/access).",
+                "key": "token",
+                "value": "<string>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "token"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"rid\": \"<integer>\",\n  \"packageName\": \"<string>\",\n  \"transactionName\": \"<string>\",\n  \"start\": \"<boolean>\",\n  \"enableHARLogging\": \"<boolean>\",\n  \"launchApp\": \"<boolean>\",\n  \"isAutomation\": \"<boolean>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "836f6555-c3a0-4a6c-8a95-937658dcbd1f",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2",
+                    "start-transaction"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "pCloudy cloud host prefix; the docs refer to this as <Cloud URL>. (This can only be one of device,demo,aus)",
+                      "type": "any",
+                      "value": "{{cloud}}",
+                      "key": "cloud"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) API access token (from /api/access).",
+                    "key": "token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"rid\": \"<integer>\",\n  \"packageName\": \"<string>\",\n  \"transactionName\": \"<string>\",\n  \"start\": \"<boolean>\",\n  \"enableHARLogging\": \"<boolean>\",\n  \"launchApp\": \"<boolean>\",\n  \"isAutomation\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"traceId\": \"QkNmNIxnUgbxjsCbOfU\",\n  \"requestId\": \"Ft3PQBMIZFcwlCextEqd8\",\n  \"statusCode\": 200,\n  \"status\": \"success\",\n  \"message\": \"Transaction Operation successful\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b8549ba2-759b-4a02-9dad-608c8ab02785",
+              "name": "Unauthorized - missing or invalid access token",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2",
+                    "start-transaction"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "pCloudy cloud host prefix; the docs refer to this as <Cloud URL>. (This can only be one of device,demo,aus)",
+                      "type": "any",
+                      "value": "{{cloud}}",
+                      "key": "cloud"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) API access token (from /api/access).",
+                    "key": "token",
+                    "value": "<string>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"rid\": \"<integer>\",\n  \"packageName\": \"<string>\",\n  \"transactionName\": \"<string>\",\n  \"start\": \"<boolean>\",\n  \"enableHARLogging\": \"<boolean>\",\n  \"launchApp\": \"<boolean>\",\n  \"isAutomation\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "description": {
+        "content": "pCloudy cloud host prefix; the docs refer to this as <Cloud URL>. (This can only be one of device,demo,aus)",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "device",
+      "key": "cloud"
+    },
+    {
+      "type": "string",
+      "value": "https://{{cloud}}.pcloudy.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "token"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "20604cf8-9359-4bf8-90e9-50a6b5aaeb95",
+    "name": "pCloudy Device Cloud Performance API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The pCloudy REST API is the machine-readable surface of the pCloudy real-device testing cloud operated by Opkey (Smart Software Testing Solutions Inc.). It covers authentication, device booking and session lifecycle, app upload/install/control, device interaction, performance capture, session media and logs, network simulation, APK instrumentation, app resigning, App Center integration, and Appium/XCTest automation orchestration. All methods default to POST except authentication, and requests set Content-Type: application/json.\n\nPROVENANCE: this document was generated by API Evangelist from the operations, parameters and examples published in Opkey's own public pCloudy API Reference at https://content.pcloudy.com/apidocs/ . Opkey does not publish an OpenAPI document; every path, method, parameter and description here is transcribed from that published reference and nothing has been invented. It is a third-party transcription, not a provider artifact.\n\nContact Support:\n Name: Opkey",
+      "type": "text/plain"
+    }
+  }
+}

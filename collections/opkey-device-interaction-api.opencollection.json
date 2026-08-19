@@ -1,0 +1,242 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "pCloudy Device Cloud Device Interaction API",
+    "version": "v2"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "token",
+      "value": "{{token}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Device Interaction",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Send Text",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{cloud}.pcloudy.com/api/v2/send-text",
+            "headers": [
+              {
+                "name": "token",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "token",
+              "value": "{{token}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Types the supplied text into the currently focused input field on the device, simulating keyboard entry. Used to fill forms, search boxes, and login fields during automation without invoking a full Appium driver."
+        },
+        {
+          "info": {
+            "name": "Rotate Devices",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{cloud}.pcloudy.com/api/v2/rotate-device",
+            "headers": [
+              {
+                "name": "token",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "token",
+              "value": "{{token}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Changes the device screen orientation between portrait and landscape. Used to verify responsive layouts, orientation-change handling, and rotation-locked screens during testing."
+        },
+        {
+          "info": {
+            "name": "Send Home / Click Home",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{cloud}.pcloudy.com/api/v2/send-home",
+            "headers": [
+              {
+                "name": "token",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "token",
+              "value": "{{token}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Sends the device to its home screen, equivalent to pressing the hardware/software Home button. Used to background the current app, return to a known state, or test how the app behaves when interrupted."
+        },
+        {
+          "info": {
+            "name": "Execute ADB - Android",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{cloud}.pcloudy.com/api/v2/execute-adb",
+            "headers": [
+              {
+                "name": "token",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "token",
+              "value": "{{token}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Executes a supplied ADB (Android Debug Bridge) shell command on the reserved Android device and returns its output. Used for advanced device control and diagnostics not covered by the dedicated APIs — for example setting system properties, querying device state, or running shell utilities. Android only."
+        },
+        {
+          "info": {
+            "name": "Set Passcode iOS",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{cloud}.pcloudy.com/api/v2/set-passcode",
+            "headers": [
+              {
+                "name": "token",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "token",
+              "value": "{{token}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Sets a device passcode/lock on a reserved iOS device. Used to test flows that require a device passcode — for example secure storage, biometric fallbacks, or MDM policies. Pair with the reset call to remove it afterwards. iOS only."
+        },
+        {
+          "info": {
+            "name": "Toggle Offline Mode Enable iOS",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{cloud}.pcloudy.com/api/v2/toggle-offline-mode",
+            "headers": [
+              {
+                "name": "token",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "token",
+              "value": "{{token}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Enables offline (airplane) mode on a reserved iOS device, disabling its network radios. Used to test offline behaviour, error states, and reconnection handling; re-enable connectivity with the disable call."
+        },
+        {
+          "info": {
+            "name": "Biometric Authentication",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{cloud}.pcloudy.com/api/fingerprint_auth",
+            "headers": [
+              {
+                "name": "token",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "token",
+              "value": "{{token}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Simulates a biometric authentication event (fingerprint / Touch ID / Face ID) on the device, returning success or failure. Used to test biometric-protected flows such as login, secure storage, and payment confirmation without physical interaction."
+        },
+        {
+          "info": {
+            "name": "Inject Image",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{cloud}.pcloudy.com/api/imageInject",
+            "headers": [
+              {
+                "name": "token",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "token",
+              "value": "{{token}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Injects a supplied image into the device's camera feed or gallery so the app reads it as if captured by the camera. Used to test camera-based flows such as QR/barcode scanning, document capture, and image upload with deterministic inputs."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

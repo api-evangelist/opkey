@@ -1,0 +1,131 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "pCloudy Device Cloud App Center Api API",
+    "version": "v2"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "token",
+      "value": "{{token}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "App Center Api",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get App Center Apps",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{cloud}.pcloudy.com/api/get_appcenter_apps",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "token",
+              "value": "{{token}}",
+              "placement": "header"
+            }
+          },
+          "docs": "These APIs allow users to directly use the app that is present in the \"Microsoft App Center\" account and install it on the connected device on the pCloudy platform. This will save users the time that is required for uploading various apps.This used to fetch the app that is already there in the user account app center account."
+        },
+        {
+          "info": {
+            "name": "Get App Center App Releases",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{cloud}.pcloudy.com/api/get_appcenter_app_releases",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "token",
+              "value": "{{token}}",
+              "placement": "header"
+            }
+          },
+          "docs": "This API is used to fetch all the builds of an application"
+        },
+        {
+          "info": {
+            "name": "Get App Center App Release Details",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{cloud}.pcloudy.com/api/get_appcenter_app_release_details",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "token",
+              "value": "{{token}}",
+              "placement": "header"
+            }
+          },
+          "docs": "This API is used to retrieve release information of a specific app."
+        },
+        {
+          "info": {
+            "name": "Download or Upload the App Center Apps to pCloudy Portal",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{cloud}.pcloudy.com/api/upload_appcenter_app",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "token",
+              "value": "{{token}}",
+              "placement": "header"
+            }
+          },
+          "docs": "This is used to download or upload the app to the pCloudy platform from the App center"
+        },
+        {
+          "info": {
+            "name": "Delete uploaded App Center App from pCloudy Portal",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{cloud}.pcloudy.com/api/delete_external_app",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "token",
+              "value": "{{token}}",
+              "placement": "header"
+            }
+          },
+          "docs": "This API is used to delete the app center app from pcloudy platform"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

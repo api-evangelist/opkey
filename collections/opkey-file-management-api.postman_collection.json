@@ -1,0 +1,454 @@
+{
+  "item": [
+    {
+      "id": "2e245cac-0387-4f76-8258-f00817bedf8a",
+      "name": "File Management",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "48ad1758-b610-4b8e-a923-a9c9c83bfa01",
+          "name": "Files_Info(V2)",
+          "request": {
+            "name": "Files_Info(V2)",
+            "description": {
+              "content": "Returns the list of files and apps available in the account's pCloudy drive, with optional filtering (for example by type such as appdata). Used to discover uploaded builds and data files and obtain their identifiers for install, push, or download operations.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v2",
+                "filesinfo"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "pCloudy cloud host prefix; the docs refer to this as <Cloud URL>. (This can only be one of device,demo,aus)",
+                  "type": "any",
+                  "value": "{{cloud}}",
+                  "key": "cloud"
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) API access token (from /api/access).",
+                "key": "token",
+                "value": "<string>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "token"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"filter\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "3a9eb128-2e2a-4a6e-840a-93684fe3f760",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2",
+                    "filesinfo"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "pCloudy cloud host prefix; the docs refer to this as <Cloud URL>. (This can only be one of device,demo,aus)",
+                      "type": "any",
+                      "value": "{{cloud}}",
+                      "key": "cloud"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) API access token (from /api/access).",
+                    "key": "token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"filter\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"traceId\": \"Rfla3glk3eu5W5100twP\",\n  \"requestId\": \"va0bsZkBC5g046aW862E\",\n  \"statusCode\": 200,\n  \"status\": \"success\",\n  \"message\": \"Retrieved files list successfully\",\n  \"data\": [\n    {\n      \"Files\": []\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "75b54eb3-3994-4f09-af0c-801a9ffacfed",
+              "name": "Unauthorized - missing or invalid access token",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2",
+                    "filesinfo"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "pCloudy cloud host prefix; the docs refer to this as <Cloud URL>. (This can only be one of device,demo,aus)",
+                      "type": "any",
+                      "value": "{{cloud}}",
+                      "key": "cloud"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) API access token (from /api/access).",
+                    "key": "token",
+                    "value": "<string>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"filter\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "00621584-dcb2-4564-a01b-90246705cc02",
+          "name": "Upload Application",
+          "request": {
+            "name": "Upload Application",
+            "description": {
+              "content": "Uploads an application binary (APK/IPA) to the pCloudy drive so it can later be installed on devices. Used to upload the apps under test. User can directly connect the device and install the apps uploaded before.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v2",
+                "upload"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "pCloudy cloud host prefix; the docs refer to this as <Cloud URL>. (This can only be one of device,demo,aus)",
+                  "type": "any",
+                  "value": "{{cloud}}",
+                  "key": "cloud"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "token"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"None\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "3f03794c-0a64-4a51-bae3-e1ab4a0d7383",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2",
+                    "upload"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "pCloudy cloud host prefix; the docs refer to this as <Cloud URL>. (This can only be one of device,demo,aus)",
+                      "type": "any",
+                      "value": "{{cloud}}",
+                      "key": "cloud"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"None\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"result\": {\n    \"code\": 200,\n    \"msg\": \"success\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "78ad59bc-1d0b-4b27-87ca-3888ebfd22af",
+              "name": "Unauthorized - missing or invalid access token",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2",
+                    "upload"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "pCloudy cloud host prefix; the docs refer to this as <Cloud URL>. (This can only be one of device,demo,aus)",
+                      "type": "any",
+                      "value": "{{cloud}}",
+                      "key": "cloud"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "token",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"None\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "description": {
+        "content": "pCloudy cloud host prefix; the docs refer to this as <Cloud URL>. (This can only be one of device,demo,aus)",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "device",
+      "key": "cloud"
+    },
+    {
+      "type": "string",
+      "value": "https://{{cloud}}.pcloudy.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "token"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "88a18957-5df9-4cfb-87ac-ab37b64b527d",
+    "name": "pCloudy Device Cloud File Management API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The pCloudy REST API is the machine-readable surface of the pCloudy real-device testing cloud operated by Opkey (Smart Software Testing Solutions Inc.). It covers authentication, device booking and session lifecycle, app upload/install/control, device interaction, performance capture, session media and logs, network simulation, APK instrumentation, app resigning, App Center integration, and Appium/XCTest automation orchestration. All methods default to POST except authentication, and requests set Content-Type: application/json.\n\nPROVENANCE: this document was generated by API Evangelist from the operations, parameters and examples published in Opkey's own public pCloudy API Reference at https://content.pcloudy.com/apidocs/ . Opkey does not publish an OpenAPI document; every path, method, parameter and description here is transcribed from that published reference and nothing has been invented. It is a third-party transcription, not a provider artifact.\n\nContact Support:\n Name: Opkey",
+      "type": "text/plain"
+    }
+  }
+}

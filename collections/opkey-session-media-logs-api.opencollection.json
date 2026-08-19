@@ -1,0 +1,161 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "pCloudy Device Cloud Session Media & Logs API",
+    "version": "v2"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "token",
+      "value": "{{token}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Session Media & Logs",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Downloaded Session Video(V2)",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{cloud}.pcloudy.com/api/v2/download/session-video",
+            "headers": [
+              {
+                "name": "token",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "token",
+              "value": "{{token}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Generates a time-limited signed URL from which the session screen-recording video can be downloaded. Call it once the upload has completed (see the upload-progress API) to obtain a direct, shareable link to the recorded video for the session."
+        },
+        {
+          "info": {
+            "name": "Device_logs_download(V2)",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{cloud}.pcloudy.com/api/v2/device-logs-download",
+            "headers": [
+              {
+                "name": "token",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "token",
+              "value": "{{token}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Collects the device logs captured during the session (logcat on Android, syslog on iOS) and returns them as a downloadable log file. Use it to retrieve runtime, warning, and diagnostic output for debugging test failures after the session ends."
+        },
+        {
+          "info": {
+            "name": "Enable Video Record",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{cloud}.pcloudy.com/api/v2/video-record",
+            "headers": [
+              {
+                "name": "token",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "token",
+              "value": "{{token}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Starts screen-video recording of the session on the reserved device. Use it to capture a video of the test run for evidence or debugging; stop it with the disable-video-record call, after which the video can be uploaded and downloaded."
+        },
+        {
+          "info": {
+            "name": "Crash Logs Download — iOS",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{cloud}.pcloudy.com/api/v2/crash-logs-download",
+            "headers": [
+              {
+                "name": "token",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "token",
+              "value": "{{token}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Collects the iOS crash reports generated during the session and returns them as a downloadable file. Used to investigate app crashes captured on the device, providing the crash stack and diagnostic logs for debugging."
+        },
+        {
+          "info": {
+            "name": "Video Upload progress(V2)",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{cloud}.pcloudy.com/api/v2/session-video/upload-progress",
+            "headers": [
+              {
+                "name": "token",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "token",
+              "value": "{{token}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Returns the current upload progress of the session screen-recording video as it is transferred to pCloudy storage. Poll this endpoint after a recorded session to know when the video has finished uploading and is ready to download, and to drive a progress indicator in the UI."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

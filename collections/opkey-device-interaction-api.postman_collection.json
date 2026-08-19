@@ -1,0 +1,1708 @@
+{
+  "item": [
+    {
+      "id": "fb3b3663-6147-4724-95a3-b9782b80cd0b",
+      "name": "Device Interaction",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "993db2e4-cc1a-416c-ac6a-fa7082c55f1c",
+          "name": "Send Text",
+          "request": {
+            "name": "Send Text",
+            "description": {
+              "content": "Types the supplied text into the currently focused input field on the device, simulating keyboard entry. Used to fill forms, search boxes, and login fields during automation without invoking a full Appium driver.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v2",
+                "send-text"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "pCloudy cloud host prefix; the docs refer to this as <Cloud URL>. (This can only be one of device,demo,aus)",
+                  "type": "any",
+                  "value": "{{cloud}}",
+                  "key": "cloud"
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) API access token (from /api/access).",
+                "key": "token",
+                "value": "<string>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "token"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"rid\": \"<integer>\",\n  \"text\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "e9261786-ddd7-44ef-9d69-c7434ab8c7ef",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2",
+                    "send-text"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "pCloudy cloud host prefix; the docs refer to this as <Cloud URL>. (This can only be one of device,demo,aus)",
+                      "type": "any",
+                      "value": "{{cloud}}",
+                      "key": "cloud"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) API access token (from /api/access).",
+                    "key": "token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"rid\": \"<integer>\",\n  \"text\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"traceId\": \"rvvl8cZniTjpOZc3PjML\",\n  \"requestId\": \"2hdwScztjkJSTbJluNpPx\",\n  \"statusCode\": 200,\n  \"status\": \"success\",\n  \"message\": \"Text sent successfully\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "563fa763-9dcb-4346-893b-37b1e08a1678",
+              "name": "Unauthorized - missing or invalid access token",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2",
+                    "send-text"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "pCloudy cloud host prefix; the docs refer to this as <Cloud URL>. (This can only be one of device,demo,aus)",
+                      "type": "any",
+                      "value": "{{cloud}}",
+                      "key": "cloud"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) API access token (from /api/access).",
+                    "key": "token",
+                    "value": "<string>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"rid\": \"<integer>\",\n  \"text\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b2731de0-21a0-4e22-93b8-6a3a45c019f6",
+          "name": "Rotate Devices",
+          "request": {
+            "name": "Rotate Devices",
+            "description": {
+              "content": "Changes the device screen orientation between portrait and landscape. Used to verify responsive layouts, orientation-change handling, and rotation-locked screens during testing.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v2",
+                "rotate-device"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "pCloudy cloud host prefix; the docs refer to this as <Cloud URL>. (This can only be one of device,demo,aus)",
+                  "type": "any",
+                  "value": "{{cloud}}",
+                  "key": "cloud"
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) API access token (from /api/access).",
+                "key": "token",
+                "value": "<string>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "token"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"rid\": \"<integer>\",\n  \"rotate\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "9a74e307-a944-4f7a-a1b4-79aab36c2396",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2",
+                    "rotate-device"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "pCloudy cloud host prefix; the docs refer to this as <Cloud URL>. (This can only be one of device,demo,aus)",
+                      "type": "any",
+                      "value": "{{cloud}}",
+                      "key": "cloud"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) API access token (from /api/access).",
+                    "key": "token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"rid\": \"<integer>\",\n  \"rotate\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"traceId\": \"HENicjFnrTPEwgD8oG3P\",\n  \"requestId\": \"AygidMFjGKRj1CTHnVlG\",\n  \"statusCode\": 200,\n  \"status\": \"success\",\n  \"message\": \"Rotate Successful\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a290949a-72c0-4713-8193-221410884156",
+              "name": "Unauthorized - missing or invalid access token",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2",
+                    "rotate-device"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "pCloudy cloud host prefix; the docs refer to this as <Cloud URL>. (This can only be one of device,demo,aus)",
+                      "type": "any",
+                      "value": "{{cloud}}",
+                      "key": "cloud"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) API access token (from /api/access).",
+                    "key": "token",
+                    "value": "<string>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"rid\": \"<integer>\",\n  \"rotate\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5fda0601-37b6-4ad4-addc-665f4a7fc55e",
+          "name": "Send Home / Click Home",
+          "request": {
+            "name": "Send Home / Click Home",
+            "description": {
+              "content": "Sends the device to its home screen, equivalent to pressing the hardware/software Home button. Used to background the current app, return to a known state, or test how the app behaves when interrupted.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v2",
+                "send-home"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "pCloudy cloud host prefix; the docs refer to this as <Cloud URL>. (This can only be one of device,demo,aus)",
+                  "type": "any",
+                  "value": "{{cloud}}",
+                  "key": "cloud"
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) API access token (from /api/access).",
+                "key": "token",
+                "value": "<string>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "token"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"rid\": \"<integer>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "c3ba6d21-7cf8-4b03-9c93-b72fcdbedf54",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2",
+                    "send-home"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "pCloudy cloud host prefix; the docs refer to this as <Cloud URL>. (This can only be one of device,demo,aus)",
+                      "type": "any",
+                      "value": "{{cloud}}",
+                      "key": "cloud"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) API access token (from /api/access).",
+                    "key": "token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"rid\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"traceId\": \"BQNca3oxFdvxcfRGaFiO\",\n  \"requestId\": \"LLUZIiZB2ScmMG1bBVsp\",\n  \"statusCode\": 200,\n  \"status\": \"success\",\n  \"message\": \"Home reached\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "3fc69bb3-38ab-468b-8ae4-61f9ece0dafd",
+              "name": "Unauthorized - missing or invalid access token",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2",
+                    "send-home"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "pCloudy cloud host prefix; the docs refer to this as <Cloud URL>. (This can only be one of device,demo,aus)",
+                      "type": "any",
+                      "value": "{{cloud}}",
+                      "key": "cloud"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) API access token (from /api/access).",
+                    "key": "token",
+                    "value": "<string>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"rid\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "03f2b5aa-450a-4db1-a8b3-7e360cb0a33a",
+          "name": "Execute ADB - Android",
+          "request": {
+            "name": "Execute ADB - Android",
+            "description": {
+              "content": "Executes a supplied ADB (Android Debug Bridge) shell command on the reserved Android device and returns its output. Used for advanced device control and diagnostics not covered by the dedicated APIs — for example setting system properties, querying device state, or running shell utilities. Android only.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v2",
+                "execute-adb"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "pCloudy cloud host prefix; the docs refer to this as <Cloud URL>. (This can only be one of device,demo,aus)",
+                  "type": "any",
+                  "value": "{{cloud}}",
+                  "key": "cloud"
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) Authtoken (this will get from authenticate response)",
+                "key": "token",
+                "value": "<string>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "token"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"rid\": \"<string>\",\n  \"adbCommand\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "7a521ba2-67f6-41a3-b7a0-70f5f6cb1b7f",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2",
+                    "execute-adb"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "pCloudy cloud host prefix; the docs refer to this as <Cloud URL>. (This can only be one of device,demo,aus)",
+                      "type": "any",
+                      "value": "{{cloud}}",
+                      "key": "cloud"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Authtoken (this will get from authenticate response)",
+                    "key": "token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"rid\": \"<string>\",\n  \"adbCommand\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"traceId\": \"yQaPaWw3ib98z0HSS4Qw\",\n  \"requestId\": \"o9vEkKH0nbljA3wPNGGo\",\n  \"statusCode\": 200,\n  \"status\": \"OK\",\n  \"data\": \"RZCY1020BRV\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b1d596fb-1c0f-4888-86d8-c26ad3a658a4",
+              "name": "Unauthorized - missing or invalid access token",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2",
+                    "execute-adb"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "pCloudy cloud host prefix; the docs refer to this as <Cloud URL>. (This can only be one of device,demo,aus)",
+                      "type": "any",
+                      "value": "{{cloud}}",
+                      "key": "cloud"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) Authtoken (this will get from authenticate response)",
+                    "key": "token",
+                    "value": "<string>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"rid\": \"<string>\",\n  \"adbCommand\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0826c79f-3287-4b78-b6cd-a54eac8fb9cc",
+          "name": "Set Passcode iOS",
+          "request": {
+            "name": "Set Passcode iOS",
+            "description": {
+              "content": "Sets a device passcode/lock on a reserved iOS device. Used to test flows that require a device passcode — for example secure storage, biometric fallbacks, or MDM policies. Pair with the reset call to remove it afterwards. iOS only.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v2",
+                "set-passcode"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "pCloudy cloud host prefix; the docs refer to this as <Cloud URL>. (This can only be one of device,demo,aus)",
+                  "type": "any",
+                  "value": "{{cloud}}",
+                  "key": "cloud"
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) API access token (from /api/access).",
+                "key": "token",
+                "value": "<string>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "token"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"rid\": \"<integer>\",\n  \"passcode\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "4c70a9c8-43af-4241-8710-503d577edd51",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2",
+                    "set-passcode"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "pCloudy cloud host prefix; the docs refer to this as <Cloud URL>. (This can only be one of device,demo,aus)",
+                      "type": "any",
+                      "value": "{{cloud}}",
+                      "key": "cloud"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) API access token (from /api/access).",
+                    "key": "token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"rid\": \"<integer>\",\n  \"passcode\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"traceId\": \"A6XIN11vsnZZif53w5Fa\",\n  \"requestId\": \"fV3Ot1hbNceuWOlwFW9ld\",\n  \"statusCode\": 200,\n  \"status\": \"success\",\n  \"message\": \"success\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "bd84a62d-6d1a-42d2-a7c9-7ca86d215607",
+              "name": "Unauthorized - missing or invalid access token",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2",
+                    "set-passcode"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "pCloudy cloud host prefix; the docs refer to this as <Cloud URL>. (This can only be one of device,demo,aus)",
+                      "type": "any",
+                      "value": "{{cloud}}",
+                      "key": "cloud"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) API access token (from /api/access).",
+                    "key": "token",
+                    "value": "<string>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"rid\": \"<integer>\",\n  \"passcode\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c78e84ab-3b0c-4627-8a26-94e384cbe736",
+          "name": "Toggle Offline Mode Enable iOS",
+          "request": {
+            "name": "Toggle Offline Mode Enable iOS",
+            "description": {
+              "content": "Enables offline (airplane) mode on a reserved iOS device, disabling its network radios. Used to test offline behaviour, error states, and reconnection handling; re-enable connectivity with the disable call.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "v2",
+                "toggle-offline-mode"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "pCloudy cloud host prefix; the docs refer to this as <Cloud URL>. (This can only be one of device,demo,aus)",
+                  "type": "any",
+                  "value": "{{cloud}}",
+                  "key": "cloud"
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) API access token (from /api/access).",
+                "key": "token",
+                "value": "<string>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "token"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"rid\": \"<integer>\",\n  \"enable\": \"<boolean>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "90f7c66d-93cc-466c-bf56-e9c138b8febf",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2",
+                    "toggle-offline-mode"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "pCloudy cloud host prefix; the docs refer to this as <Cloud URL>. (This can only be one of device,demo,aus)",
+                      "type": "any",
+                      "value": "{{cloud}}",
+                      "key": "cloud"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) API access token (from /api/access).",
+                    "key": "token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"rid\": \"<integer>\",\n  \"enable\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"traceId\": \"lt5OviYpzDkAxSRZXAO\",\n  \"requestId\": \"zdOW1lwNz2tTc2LcDHfu\",\n  \"statusCode\": 200,\n  \"status\": \"success\",\n  \"message\": \"Offline mode enabled\",\n  \"data\": {\n    \"isOk\": true,\n    \"statusCode\": 200,\n    \"data\": {\n      \"statusCode\": 200,\n      \"message\": \"Enable operation for offline mode Successful\"\n    },\n    \"err\": null\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d524548b-6499-4652-ae2d-befd2c6aecdd",
+              "name": "Unauthorized - missing or invalid access token",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v2",
+                    "toggle-offline-mode"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "pCloudy cloud host prefix; the docs refer to this as <Cloud URL>. (This can only be one of device,demo,aus)",
+                      "type": "any",
+                      "value": "{{cloud}}",
+                      "key": "cloud"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) API access token (from /api/access).",
+                    "key": "token",
+                    "value": "<string>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"rid\": \"<integer>\",\n  \"enable\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "53d42314-9088-4f3d-a611-b1c3ca2e495b",
+          "name": "Biometric Authentication",
+          "request": {
+            "name": "Biometric Authentication",
+            "description": {
+              "content": "Simulates a biometric authentication event (fingerprint / Touch ID / Face ID) on the device, returning success or failure. Used to test biometric-protected flows such as login, secure storage, and payment confirmation without physical interaction.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "fingerprint_auth"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "pCloudy cloud host prefix; the docs refer to this as <Cloud URL>. (This can only be one of device,demo,aus)",
+                  "type": "any",
+                  "value": "{{cloud}}",
+                  "key": "cloud"
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) API access token (from /api/access).",
+                "key": "token",
+                "value": "<string>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "token"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"rid\": \"<integer>\",\n  \"auth_state\": \"<boolean>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "ccbb7a69-5492-43b5-9cc4-d03e511bacf4",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "fingerprint_auth"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "pCloudy cloud host prefix; the docs refer to this as <Cloud URL>. (This can only be one of device,demo,aus)",
+                      "type": "any",
+                      "value": "{{cloud}}",
+                      "key": "cloud"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) API access token (from /api/access).",
+                    "key": "token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"rid\": \"<integer>\",\n  \"auth_state\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"result\": {\n    \"code\": 200,\n    \"status\": true\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "edf5771e-db30-466b-a701-41753369f7b6",
+              "name": "Unauthorized - missing or invalid access token",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "fingerprint_auth"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "pCloudy cloud host prefix; the docs refer to this as <Cloud URL>. (This can only be one of device,demo,aus)",
+                      "type": "any",
+                      "value": "{{cloud}}",
+                      "key": "cloud"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) API access token (from /api/access).",
+                    "key": "token",
+                    "value": "<string>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"rid\": \"<integer>\",\n  \"auth_state\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e2b3f83c-add6-41a4-9792-30aee126d339",
+          "name": "Inject Image",
+          "request": {
+            "name": "Inject Image",
+            "description": {
+              "content": "Injects a supplied image into the device's camera feed or gallery so the app reads it as if captured by the camera. Used to test camera-based flows such as QR/barcode scanning, document capture, and image upload with deterministic inputs.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "imageInject"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "pCloudy cloud host prefix; the docs refer to this as <Cloud URL>. (This can only be one of device,demo,aus)",
+                  "type": "any",
+                  "value": "{{cloud}}",
+                  "key": "cloud"
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) API access token (from /api/access).",
+                "key": "token",
+                "value": "<string>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "token"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"rid\": \"<string>\",\n  \"fileName\": \"<string>\",\n  \"version\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "dbc0d885-2b17-48bf-89c2-4e15d062ee5d",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "imageInject"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "pCloudy cloud host prefix; the docs refer to this as <Cloud URL>. (This can only be one of device,demo,aus)",
+                      "type": "any",
+                      "value": "{{cloud}}",
+                      "key": "cloud"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) API access token (from /api/access).",
+                    "key": "token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"rid\": \"<string>\",\n  \"fileName\": \"<string>\",\n  \"version\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"traceId\": \"fdjixR4A2GBcgiD25Kuc\",\n  \"requestId\": \"uA1gWOYKPZ7BqoAaBzx4\",\n  \"statusCode\": 200,\n  \"status\": \"success\",\n  \"message\": \"Successfully Injected\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "533da84b-15d7-4363-9374-6bd3421568ac",
+              "name": "Unauthorized - missing or invalid access token",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "imageInject"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "pCloudy cloud host prefix; the docs refer to this as <Cloud URL>. (This can only be one of device,demo,aus)",
+                      "type": "any",
+                      "value": "{{cloud}}",
+                      "key": "cloud"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) API access token (from /api/access).",
+                    "key": "token",
+                    "value": "<string>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"rid\": \"<string>\",\n  \"fileName\": \"<string>\",\n  \"version\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "description": {
+        "content": "pCloudy cloud host prefix; the docs refer to this as <Cloud URL>. (This can only be one of device,demo,aus)",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "device",
+      "key": "cloud"
+    },
+    {
+      "type": "string",
+      "value": "https://{{cloud}}.pcloudy.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "token"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "f8930c67-1fef-4df4-804a-676ad71cef05",
+    "name": "pCloudy Device Cloud Device Interaction API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The pCloudy REST API is the machine-readable surface of the pCloudy real-device testing cloud operated by Opkey (Smart Software Testing Solutions Inc.). It covers authentication, device booking and session lifecycle, app upload/install/control, device interaction, performance capture, session media and logs, network simulation, APK instrumentation, app resigning, App Center integration, and Appium/XCTest automation orchestration. All methods default to POST except authentication, and requests set Content-Type: application/json.\n\nPROVENANCE: this document was generated by API Evangelist from the operations, parameters and examples published in Opkey's own public pCloudy API Reference at https://content.pcloudy.com/apidocs/ . Opkey does not publish an OpenAPI document; every path, method, parameter and description here is transcribed from that published reference and nothing has been invented. It is a third-party transcription, not a provider artifact.\n\nContact Support:\n Name: Opkey",
+      "type": "text/plain"
+    }
+  }
+}

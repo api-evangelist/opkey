@@ -1,0 +1,743 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "pCloudy Device Cloud Generic API",
+    "version": "v2"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "token",
+      "value": "{{token}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Generic",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Kill App",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{cloud}.pcloudy.com/api/v2/generic/kill-app",
+            "headers": [
+              {
+                "name": "token",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "token",
+              "value": "{{token}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Force-stops (kills) the specified application on the reserved device, immediately terminating its process and any background activity. Use it to reset an app to a clean state between test steps or to recover from a hung/unresponsive app without uninstalling it. The app stays installed and can be relaunched afterwards."
+        },
+        {
+          "info": {
+            "name": "Uninstall App(V2)",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{cloud}.pcloudy.com/api/v2/generic/uninstall-app",
+            "headers": [
+              {
+                "name": "token",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "token",
+              "value": "{{token}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Uninstalls the specified application from the reserved device, removing the app binary together with its locally stored data and cache. Typically used during teardown or before installing a fresh build to guarantee a clean install. The app must be reinstalled before it can be used again."
+        },
+        {
+          "info": {
+            "name": "Geo IP Location - Connect",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{cloud}.pcloudy.com/api/v2/generic/geo-ip-location",
+            "headers": [
+              {
+                "name": "token",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "token",
+              "value": "{{token}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Routes the reserved device's traffic through a selected Geo-IP location so the device appears to browse from another country/region. Used to validate geo-targeted behaviour such as localized content, currency, language, and geo-restrictions. Pair with the disconnect call to restore the default route."
+        },
+        {
+          "info": {
+            "name": "Start Streamer",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{cloud}.pcloudy.com/api/v2/generic/init-liveview",
+            "headers": [
+              {
+                "name": "token",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "token",
+              "value": "{{token}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Initializes the live-view video streamer for the reserved device, starting the real-time screen stream used to view and interact with the device remotely. Used at the start of an interactive session to begin streaming the device screen."
+        },
+        {
+          "info": {
+            "name": "Set Mock GPS Location",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{cloud}.pcloudy.com/api/v2/generic/set-location",
+            "headers": [
+              {
+                "name": "token",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "token",
+              "value": "{{token}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Sets a mock GPS location on the device using the supplied latitude and longitude, overriding the real location. Used to test location-aware features such as maps, geofencing, and location-based content by placing the device at any coordinates."
+        },
+        {
+          "info": {
+            "name": "Set Time Zone (iOS)",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{cloud}.pcloudy.com/api/v2/generic/set-timezone",
+            "headers": [
+              {
+                "name": "token",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "token",
+              "value": "{{token}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Sets the device system timezone to the supplied value. Used to test time-zone-dependent behaviour such as schedules, timestamps, daylight-saving handling, and localized date/time formatting."
+        },
+        {
+          "info": {
+            "name": "Start Performance Data",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{cloud}.pcloudy.com/api/start_performance_data",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "token",
+              "value": "{{token}}",
+              "placement": "header"
+            }
+          },
+          "docs": "This API helps to start the performance data of the app under testing. You will get battery, CPU, memory, internet and frame rendering data on Android device and for iOS you will get the CPU, memory and network packets under testing on that device. This data is stored in cloud drive."
+        },
+        {
+          "info": {
+            "name": "Performance Data File List",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{cloud}.pcloudy.com/api/manual_access_files_list",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "token",
+              "value": "{{token}}",
+              "placement": "header"
+            }
+          },
+          "docs": "This API helps to get the performance data file names which are stored in cloud drive of a particular device. You will get battery, CPU, memory, internet and frame rendering data files."
+        },
+        {
+          "info": {
+            "name": "Download Performance Data",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{cloud}.pcloudy.com/api/download_manual_access_data",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "token",
+              "value": "{{token}}",
+              "placement": "header"
+            }
+          },
+          "docs": "This api help to download the performance data file from cloud drive to your local system."
+        },
+        {
+          "info": {
+            "name": "Install and Launch App",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{cloud}.pcloudy.com/api/install_app",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "token",
+              "value": "{{token}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Install and launch API will install the app (apk/ipa) in the device and launch it on the device. App launch will work on Android devices, but on iOS devices the app will install but not launch."
+        },
+        {
+          "info": {
+            "name": "Push File",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{cloud}.pcloudy.com/api/pushFileToSwapBox",
+            "headers": [
+              {
+                "name": "token",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "token",
+              "value": "{{token}}",
+              "placement": "header"
+            }
+          },
+          "docs": "This API pushes the file or apk from Cloud Drive to the device SwapBox. In Android device you can find SwapBox in Internal storage."
+        },
+        {
+          "info": {
+            "name": "Delete File From Cloud",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{cloud}.pcloudy.com/api/delete_file",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "token",
+              "value": "{{token}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Using this REST API, you can delete a file from cloud drive."
+        },
+        {
+          "info": {
+            "name": "Get Device List",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{cloud}.pcloudy.com/api/devices",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "token",
+              "value": "{{token}}",
+              "placement": "header"
+            }
+          },
+          "docs": "This API helps to get the list of all available devices in pCloudy with all the relevant details (full_name, id, model, version, mobile number, dpi, etc.) about each device."
+        },
+        {
+          "info": {
+            "name": "Book Device",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{cloud}.pcloudy.com/api/book_device",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "token",
+              "value": "{{token}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Book Device API books the device for your testing. For device booking you have to pass the authToken, how many minutes you want to book, and the device id. Every device has a different id."
+        },
+        {
+          "info": {
+            "name": "Release Device",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{cloud}.pcloudy.com/api/release_device",
+            "headers": [
+              {
+                "name": "token",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "token",
+              "value": "{{token}}",
+              "placement": "header"
+            }
+          },
+          "docs": "This api help you to release the device."
+        },
+        {
+          "info": {
+            "name": "Get User Details",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{cloud}.pcloudy.com/api/get_user_details",
+            "body": {
+              "type": "multipart-form",
+              "data": [
+                {
+                  "name": "authToken",
+                  "type": "text",
+                  "value": ""
+                }
+              ]
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "token",
+              "value": "{{token}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Using this API, user will get all the account details like userId, email_id, username, account balance, etc."
+        },
+        {
+          "info": {
+            "name": "Upload App",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{cloud}.pcloudy.com/api/upload_file",
+            "body": {
+              "type": "multipart-form",
+              "data": [
+                {
+                  "name": "file",
+                  "type": "text",
+                  "value": ""
+                },
+                {
+                  "name": "source_type",
+                  "type": "text",
+                  "value": ""
+                },
+                {
+                  "name": "token",
+                  "type": "text",
+                  "value": ""
+                },
+                {
+                  "name": "filter",
+                  "type": "text",
+                  "value": ""
+                }
+              ]
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "token",
+              "value": "{{token}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Using Upload API you can upload the apps to pCloudy cloud drive. Uploaded files/apps are available in MY App/Data section in pCloudy platform."
+        },
+        {
+          "info": {
+            "name": "Get Available Apps",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{cloud}.pcloudy.com/api/drive",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "token",
+              "value": "{{token}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Get Available App API shows total files and apps that are uploaded in cloud drive."
+        },
+        {
+          "info": {
+            "name": "Download File From Cloud",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{cloud}.pcloudy.com/api/download_file",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "token",
+              "value": "{{token}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Using this REST API, you can download any file from the cloud drive to your local system."
+        },
+        {
+          "info": {
+            "name": "Get Single Device Details",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{cloud}.pcloudy.com/api/get_devices_details",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "token",
+              "value": "{{token}}",
+              "placement": "header"
+            }
+          },
+          "docs": "This API helps to get single device details (full_name, id, model, version, mobile number, dpi, etc.)."
+        },
+        {
+          "info": {
+            "name": "Get Device Page URL",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{cloud}.pcloudy.com/api/get_device_url",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "token",
+              "value": "{{token}}",
+              "placement": "header"
+            }
+          },
+          "docs": "This will give you the URL using which you can open the booked device screen directly in the browser. This helps you to connect to the device directly by passing the authToken and rid."
+        },
+        {
+          "info": {
+            "name": "Execute ADB",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{cloud}.pcloudy.com/api/execute_adb",
+            "headers": [
+              {
+                "name": "token",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "token",
+              "value": "{{token}}",
+              "placement": "header"
+            }
+          },
+          "docs": "This API helps to execute commands on the booked device."
+        },
+        {
+          "info": {
+            "name": "Toggle Wifi",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{cloud}.pcloudy.com/api/wifi_statehandler",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "token",
+              "value": "{{token}}",
+              "placement": "header"
+            }
+          },
+          "docs": "This API helps to ON/OFF the wifi of booked device."
+        },
+        {
+          "info": {
+            "name": "Set Location",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{cloud}.pcloudy.com/api/set_deviceLocation",
+            "headers": [
+              {
+                "name": "token",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "token",
+              "value": "{{token}}",
+              "placement": "header"
+            }
+          },
+          "docs": "This API helps users to set phone location (using latitude and longitude) for any location aware app. For your location aware application you can change the geo-location of the device using this feature."
+        },
+        {
+          "info": {
+            "name": "Capture Device Screenshot",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{cloud}.pcloudy.com/api/capture_device_screenshot",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "token",
+              "value": "{{token}}",
+              "placement": "header"
+            }
+          },
+          "docs": "This API takes the screenshot of the device. This screenshot helps you to figure out the steps done by automation process."
+        },
+        {
+          "info": {
+            "name": "Get Device Session Details",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{cloud}.pcloudy.com/api/get_device_sessionDetails",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "token",
+              "value": "{{token}}",
+              "placement": "header"
+            }
+          },
+          "docs": "This API gets the total session details like session start time, session end time and remaining session time."
+        },
+        {
+          "info": {
+            "name": "Wildnet",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{cloud}.pcloudy.com/api/wildnet",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "token",
+              "value": "{{token}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Using this feature you can test your local site on any android and iOS devices on pCloudy platform. You can use this feature either Manual or Appium Automation. For more information gothrough the"
+        },
+        {
+          "info": {
+            "name": "Start Device Services",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{cloud}.pcloudy.com/api/start_device_services",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "token",
+              "value": "{{token}}",
+              "placement": "header"
+            }
+          },
+          "docs": "This API helps to initialize device services on the device like device log, performance log, and session video recording."
+        },
+        {
+          "info": {
+            "name": "QR Image Inject",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{cloud}.pcloudy.com/api/qr_image_inject",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "token",
+              "value": "{{token}}",
+              "placement": "header"
+            }
+          },
+          "docs": "This API helps to inject QR images into apps to scan the QR code. You need to install the app(by using Install and Launch app api) which is having the QR scanner functionality then use this api to inject the QR image into app."
+        },
+        {
+          "info": {
+            "name": "Biometric Authentication",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{cloud}.pcloudy.com/api/biometric_authentication",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "token",
+              "value": "{{token}}",
+              "placement": "header"
+            }
+          },
+          "docs": "This API is used for Biometric authentication i.e finger print authentication ( the act of verifying an individual's identity based on their fingerprints)."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

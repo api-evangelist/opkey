@@ -1,0 +1,89 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "pCloudy Device Cloud Apk Instrumentation API",
+    "version": "v2"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "token",
+      "value": "{{token}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Apk Instrumentation",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Instrument Initiate",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{cloud}.pcloudy.com/api/app_instrumentation/initiate",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "token",
+              "value": "{{token}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Initiates instrumentation of an Android APK (for example to enable test hooks or coverage) and returns a job reference. Used when an app must be instrumented before automated testing; track progress with the progress API."
+        },
+        {
+          "info": {
+            "name": "Instrumentation Progress",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{cloud}.pcloudy.com/api/app_instrumentation/progress",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "token",
+              "value": "{{token}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Returns the current progress/status of an in-flight APK instrumentation job. Poll it after initiating instrumentation to know when the instrumented build is ready for download."
+        },
+        {
+          "info": {
+            "name": "Download Instrumented File",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{cloud}.pcloudy.com/api/app_instrumentation/download-to-cloud-drive",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "token",
+              "value": "{{token}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Downloads the instrumented APK to the pCloudy cloud drive once the instrumentation job has completed. Used to obtain the instrumented build for installation and automated testing."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,143 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "pCloudy Device Cloud Network Simulation API",
+    "version": "v2"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "token",
+      "value": "{{token}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Network Simulation",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Start Network Simulation(V2)",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{cloud}.pcloudy.com/api/v2/networkshaping/start-throttle",
+            "headers": [
+              {
+                "name": "token",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "token",
+              "value": "{{token}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Starts network shaping/throttling on the device using the specified upload and download speeds to emulate real-world conditions such as 3G, 4G, or poor connectivity. Used to test app behaviour under constrained bandwidth; stop it with the stop-throttle call."
+        },
+        {
+          "info": {
+            "name": "Stop Network Simulation(V2)",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{cloud}.pcloudy.com/api/v2/networkshaping/stop-throttle",
+            "headers": [
+              {
+                "name": "token",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "token",
+              "value": "{{token}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Stops any active network shaping/throttling on the device and restores normal, unthrottled connectivity. Call it after a constrained-network test to return the device to full speed."
+        },
+        {
+          "info": {
+            "name": "Get Network Profiles",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{cloud}.pcloudy.com/api/get_atcd_profiles",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "token",
+              "value": "{{token}}",
+              "placement": "header"
+            }
+          },
+          "docs": "This gives you the total network profile list with upload and download speed that are present in device under Network feture in pCloudy. e.g 3G,2G,4G,Broadband Low Speed."
+        },
+        {
+          "info": {
+            "name": "Set Network Profile(Atcd Shape)",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{cloud}.pcloudy.com/api/atcd_shape",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "token",
+              "value": "{{token}}",
+              "placement": "header"
+            }
+          },
+          "docs": "This api set the network profile on booked device."
+        },
+        {
+          "info": {
+            "name": "Unshape Network Profile",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{cloud}.pcloudy.com/api/atcd_unshape",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "token",
+              "value": "{{token}}",
+              "placement": "header"
+            }
+          },
+          "docs": "This api unshape the network profile that was already set in the device.."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -24,8 +24,8 @@ authentication:
     description: pCloudy API access key from Account Settings -> API.
   - name: PCLOUDY_CLOUD_URL
     description: Cloud URL of the pCloudy instance, e.g. https://device.pcloudy.com.
-  note: The server exchanges username + API key for an access token against GET /api/access (the same endpoint the
-    REST API uses) and caches it locally.
+  note: The server exchanges username + API key for an access token against GET /api/access (the same
+    endpoint the REST API uses) and caches it locally.
 clients_documented:
 - Claude Desktop (claude_desktop_config.json)
 - Cursor (mcp.json)
@@ -181,8 +181,8 @@ tools:
   group: QPilot AI test authoring
   parameters: []
 - name: create_qpilot_test
-  description: Create a new test in QPilot. Requires folderId to specify which folder the test will be created in.
-    (*mandatory) Requires test name
+  description: Create a new test in QPilot. Requires folderId to specify which folder the test will be
+    created in. (*mandatory) Requires test name
   group: QPilot AI test authoring
   parameters:
   - name: platform
@@ -231,13 +231,13 @@ tools:
     type: str
     required: true
 - name: create_qpilot_playground_session
-  description: Create a QPilot playground session for a specific test. Requires test id to specify which test to
-    create a session for. You can get the test list using the get_qpilot_tests tool. (*mandatory) Requires platform
-    information to know which platform to run the session on. All platforms <android/ios/web> (*mandatory) For mobile
-    platforms (android/ios), requires device id to know which device to run the session on. You can get the device
-    list using the get_device_list tool. (*mandatory for mobile) For web platform, requires vm_id, browser name(only
-    chrome allowed) and browser version to know which browser to run the session on. You can get these from the
-    get_browser_list tool. (*mandatory for web)
+  description: Create a QPilot playground session for a specific test. Requires test id to specify which
+    test to create a session for. You can get the test list using the get_qpilot_tests tool. (*mandatory)
+    Requires platform information to know which platform to run the session on. All platforms <android/ios/web>
+    (*mandatory) For mobile platforms (android/ios), requires device id to know which device to run the
+    session on. You can get the device list using the get_device_list tool. (*mandatory for mobile) For
+    web platform, requires vm_id, browser name(only chrome allowed) and browser version to know which
+    browser to run the session on. You can get these from the get_browser_list tool. (*mandatory for web)
   group: QPilot AI test authoring
   parameters:
   - name: platform
@@ -259,17 +259,17 @@ tools:
     type: str
     required: false
 - name: close_qpilot_playground_session
-  description: Close an active QPilot playground session for a specific test. Requires test_id to identify which
-    session to close.
+  description: Close an active QPilot playground session for a specific test. Requires test_id to identify
+    which session to close.
   group: QPilot AI test authoring
   parameters:
   - name: test_id
     type: str
     required: true
 - name: add_qpilot_step
-  description: Add and execute a single natural language step in an active QPilot playground session. Requires test_id
-    of the active session (*mandatory) and step_content, the natural language description of the action to perform
-    (*mandatory). A playground session must already be open via
+  description: Add and execute a single natural language step in an active QPilot playground session.
+    Requires test_id of the active session (*mandatory) and step_content, the natural language description
+    of the action to perform (*mandatory). A playground session must already be open via
   group: QPilot AI test authoring
   parameters:
   - name: test_id
@@ -279,10 +279,10 @@ tools:
     type: str
     required: true
 - name: insert_qpilot_step
-  description: Insert a new step at a specific position in an active QPilot playground session. Requires test_id
-    (*mandatory), insert_at (0-based index where the step will be inserted, *mandatory), and step_content (natural
-    language description, *mandatory). Existing steps at and after insert_at are shifted forward. A playground session
-    must already be open via
+  description: Insert a new step at a specific position in an active QPilot playground session. Requires
+    test_id (*mandatory), insert_at (0-based index where the step will be inserted, *mandatory), and step_content
+    (natural language description, *mandatory). Existing steps at and after insert_at are shifted forward.
+    A playground session must already be open via
   group: QPilot AI test authoring
   parameters:
   - name: test_id
@@ -295,8 +295,9 @@ tools:
     type: str
     required: true
 - name: delete_qpilot_step
-  description: Delete a step at a specific position in an active QPilot playground session. Requires test_id (*mandatory)
-    and step_idx (0-based index of the step to delete, *mandatory). A playground session must already be open via
+  description: Delete a step at a specific position in an active QPilot playground session. Requires test_id
+    (*mandatory) and step_idx (0-based index of the step to delete, *mandatory). A playground session
+    must already be open via
   group: QPilot AI test authoring
   parameters:
   - name: test_id
@@ -306,32 +307,33 @@ tools:
     type: int
     required: true
 - name: restart_qpilot_test
-  description: Restart execution of all steps from the beginning in an active QPilot playground session. Requires
-    test_id (*mandatory). A playground session must already be open via
+  description: Restart execution of all steps from the beginning in an active QPilot playground session.
+    Requires test_id (*mandatory). A playground session must already be open via
   group: QPilot AI test authoring
   parameters:
   - name: test_id
     type: str
     required: true
 - name: get_qpilot_test_steps
-  description: Get the list of steps for a specific QPilot test, including step ID, index, content, and execution
-    status. Requires test_id (*mandatory). Useful before retrying or deleting a specific step.
+  description: Get the list of steps for a specific QPilot test, including step ID, index, content, and
+    execution status. Requires test_id (*mandatory). Useful before retrying or deleting a specific step.
   group: QPilot AI test authoring
   parameters:
   - name: test_id
     type: str
     required: true
 - name: get_qpilot_test_data
-  description: Get the test data (key-value pairs) stored for a specific QPilot test. Requires test_id (*mandatory).
+  description: Get the test data (key-value pairs) stored for a specific QPilot test. Requires test_id
+    (*mandatory).
   group: QPilot AI test authoring
   parameters:
   - name: test_id
     type: str
     required: true
 - name: add_qpilot_test_data
-  description: Add or update test data key-value pairs for a QPilot test. Existing keys are preserved; new keys
-    are added and duplicate keys are overwritten. Requires test_id (*mandatory) and test_data as a JSON object string
-    e.g. \'{
+  description: Add or update test data key-value pairs for a QPilot test. Existing keys are preserved;
+    new keys are added and duplicate keys are overwritten. Requires test_id (*mandatory) and test_data
+    as a JSON object string e.g. \'{
   group: QPilot AI test authoring
   parameters:
   - name: test_id
@@ -341,8 +343,8 @@ tools:
     type: str
     required: true
 - name: delete_qpilot_test_data
-  description: Delete specific keys from the test data of a QPilot test. At least one key must remain after deletion.
-    Requires test_id (*mandatory) and keys as a JSON array string e.g. \'[
+  description: Delete specific keys from the test data of a QPilot test. At least one key must remain
+    after deletion. Requires test_id (*mandatory) and keys as a JSON array string e.g. \'[
   group: QPilot AI test authoring
   parameters:
   - name: test_id
@@ -352,9 +354,9 @@ tools:
     type: str
     required: true
 - name: modify_qpilot_test_data
-  description: Modify the values of existing keys in the test data of a QPilot test. Only keys that already exist
-    can be modified; use add_qpilot_test_data to add new keys. Requires test_id (*mandatory) and test_data as a
-    JSON object string with the keys to update e.g. \'{
+  description: Modify the values of existing keys in the test data of a QPilot test. Only keys that already
+    exist can be modified; use add_qpilot_test_data to add new keys. Requires test_id (*mandatory) and
+    test_data as a JSON object string with the keys to update e.g. \'{
   group: QPilot AI test authoring
   parameters:
   - name: test_id
@@ -364,9 +366,10 @@ tools:
     type: str
     required: true
 - name: retry_qpilot_step
-  description: Retry a single step in an active QPilot playground session. Requires test_id (*mandatory) and step_idx
-    (0-based index of the step to retry, *mandatory). Only that specific step will be re-executed. Use get_qpilot_test_steps
-    to see current steps and their indices. A playground session must already be open via
+  description: Retry a single step in an active QPilot playground session. Requires test_id (*mandatory)
+    and step_idx (0-based index of the step to retry, *mandatory). Only that specific step will be re-executed.
+    Use get_qpilot_test_steps to see current steps and their indices. A playground session must already
+    be open via
   group: QPilot AI test authoring
   parameters:
   - name: test_id
@@ -376,10 +379,10 @@ tools:
     type: int
     required: true
 - name: retry_qpilot_steps_from
-  description: Retry all steps from a specific step onwards (including that step) in an active QPilot playground
-    session. Requires test_id (*mandatory) and step_idx (0-based index of the step to start retrying from, *mandatory).
-    The given step and all steps after it will be re-executed. Use get_qpilot_test_steps to see current steps and
-    their indices. A playground session must already be open via
+  description: Retry all steps from a specific step onwards (including that step) in an active QPilot
+    playground session. Requires test_id (*mandatory) and step_idx (0-based index of the step to start
+    retrying from, *mandatory). The given step and all steps after it will be re-executed. Use get_qpilot_test_steps
+    to see current steps and their indices. A playground session must already be open via
   group: QPilot AI test authoring
   parameters:
   - name: test_id
@@ -394,6 +397,15 @@ x-evidence:
   docs_http_status: 200
   package_url: https://pypi.org/pypi/pCloudy-mcp/json
   package_http_status: 200
-  tools_source: tool definitions read verbatim from the published pcloudy_mcp-0.1.4-py3-none-any.whl on PyPI (pcloudy_mcp/tools/*.py);
-    the live tools/list could not be introspected anonymously because the server is stdio-only and requires account
-    credentials
+  tools_source: tool definitions read verbatim from the published pcloudy_mcp-0.1.4-py3-none-any.whl on
+    PyPI (pcloudy_mcp/tools/*.py); the live tools/list could not be introspected anonymously because the
+    server is stdio-only and requires account credentials
+deployment:
+  mode: none
+  endpoint: https://www.pcloudy.com/docs/mcp-server/
+  verified: probed
+  probe: dead
+  note: the endpoint this manifest claimed did not answer; recorded as none rather than deleted so the
+    claim stays auditable
+  checked: '2026-08-12'
+  source: catalog MCP census

@@ -1,0 +1,56 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "pCloudy Device Cloud Authentication API",
+    "version": "v2"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "token",
+      "value": "{{token}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Authentication",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Authentication",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{cloud}.pcloudy.com/api/access",
+            "params": [
+              {
+                "name": "email",
+                "value": "",
+                "type": "query",
+                "description": "your email id"
+              },
+              {
+                "name": "accessKey",
+                "value": "",
+                "type": "query",
+                "description": "your access key (you will get it from Account Settings->API)"
+              }
+            ],
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Authenticates the API user with Basic auth (username:API key) and returns an access token used to authorize all subsequent API calls. This is the first call in any automation flow; the returned token is sent in the header of the other endpoints."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

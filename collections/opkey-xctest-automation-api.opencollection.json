@@ -1,0 +1,182 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "pCloudy Device Cloud Xctest Automation API",
+    "version": "v2"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "token",
+      "value": "{{token}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Xctest Automation",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Book Device for Automation",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{cloud}.pcloudy.com/api/automationbooking",
+            "headers": [
+              {
+                "name": "token",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "token",
+              "value": "{{token}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Books a device for an automation session and returns the booking details, including the reservation id (rid) used by subsequent automation calls. Used to reserve a specific device before starting device services and running XCTest-based automation."
+        },
+        {
+          "info": {
+            "name": "Initialize Automation",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{cloud}.pcloudy.com/api/xctest/initiate",
+            "headers": [
+              {
+                "name": "token",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "token",
+              "value": "{{token}}",
+              "placement": "header"
+            }
+          },
+          "docs": "This API initiates the XCTest on devices for that test suite. The test suite you had to upload by using upload API which is available in Generic API."
+        },
+        {
+          "info": {
+            "name": "Start Device Services",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{cloud}.pcloudy.com/api/xctest/start_device_services",
+            "headers": [
+              {
+                "name": "token",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "token",
+              "value": "{{token}}",
+              "placement": "header"
+            }
+          },
+          "docs": "This API helps to initialize device services on the device like device log, performance log, and session video recording."
+        },
+        {
+          "info": {
+            "name": "Automation Report Shareable Link",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{cloud}.pcloudy.com/api/getAutomationShareableLink",
+            "headers": [
+              {
+                "name": "token",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "token",
+              "value": "{{token}}",
+              "placement": "header"
+            }
+          },
+          "docs": "This API helps to share the automation reports to team."
+        },
+        {
+          "info": {
+            "name": "Release Devices",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{cloud}.pcloudy.com/api/xctest/release_devices",
+            "headers": [
+              {
+                "name": "token",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "token",
+              "value": "{{token}}",
+              "placement": "header"
+            }
+          },
+          "docs": "This API helps you to release the XCTest automation devices."
+        },
+        {
+          "info": {
+            "name": "Book Devices",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{cloud}.pcloudy.com/api/xctest/book_devices",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "token",
+              "value": "{{token}}",
+              "placement": "header"
+            }
+          },
+          "docs": "This api book the devices for XCTest automation execution."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

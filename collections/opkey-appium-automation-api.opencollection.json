@@ -1,0 +1,263 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "pCloudy Device Cloud Appium Automation API",
+    "version": "v2"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "token",
+      "value": "{{token}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Appium Automation",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Lonelyappium(Automation)- To Make The Session Ongoing",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{cloud}.pcloudy.com/api/lonelyappium",
+            "headers": [
+              {
+                "name": "token",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "token",
+              "value": "{{token}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Starts a standalone (\"lonely\") Appium automation session for the given app package and keeps the device session alive/ongoing. Used to attach an external Appium script to the reserved device and prevent the session from idling out while automation runs."
+        },
+        {
+          "info": {
+            "name": "Book Devices For Appium",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{cloud}.pcloudy.com/api/appium/init",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "token",
+              "value": "{{token}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Reserves a device for an Appium automation session and returns the booking details needed to start the session. Used to allocate a device before initiating Appium execution."
+        },
+        {
+          "info": {
+            "name": "Init AppiumHub for App",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{cloud}.pcloudy.com/api/appium/execute",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "token",
+              "value": "{{token}}",
+              "placement": "header"
+            }
+          },
+          "docs": "This initiates the appium on devices for that app. The app you had to upload by using upload api which is available in Generic api."
+        },
+        {
+          "info": {
+            "name": "Get Appium File List",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{cloud}.pcloudy.com/api/appium/get_appium_file_list",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "token",
+              "value": "{{token}}",
+              "placement": "header"
+            }
+          },
+          "docs": "This gives you the all the performance files list, to generate the performance data you need to call the Start device services api in generic apis."
+        },
+        {
+          "info": {
+            "name": "Update Appium Session",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{cloud}.pcloudy.com/api/appium/update_session",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "token",
+              "value": "{{token}}",
+              "placement": "header"
+            }
+          },
+          "docs": "This API update is used to update the Appium session. Whatever value user passes in release after parameter, device gets release after that mentioned value(i.e. mentioned time in minutes) E.g: if 0 is passed in the \"release_after\" parameter, the device will get release immediately. i.e in 0 mins"
+        },
+        {
+          "info": {
+            "name": "Download Appium Performance Data",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{cloud}.pcloudy.com/api/appium/download_appium_access_data",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "token",
+              "value": "{{token}}",
+              "placement": "header"
+            }
+          },
+          "docs": "This will download the performance data like cpu, memory,battery and video."
+        },
+        {
+          "info": {
+            "name": "Initialize Session",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{cloud}.pcloudy.com/https://device.pcloudy.com/appium/wd/hub/session",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "token",
+              "value": "{{token}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Create a new Appium WebDriver session on a pCloudy real device. Normally done via your Appium client library, not raw REST."
+        },
+        {
+          "info": {
+            "name": "Book Devices For Appium",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{cloud}.pcloudy.com/api/appium/devices",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "token",
+              "value": "{{token}}",
+              "placement": "header"
+            }
+          },
+          "docs": "This api book the devices for appium execution."
+        },
+        {
+          "info": {
+            "name": "Get Appium EndPoint",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{cloud}.pcloudy.com/api/appium/endpoint",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "token",
+              "value": "{{token}}",
+              "placement": "header"
+            }
+          },
+          "docs": "This get the appium Endpoint url."
+        },
+        {
+          "info": {
+            "name": "Get Appium Report Folder",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{cloud}.pcloudy.com/api/appium/folder",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "token",
+              "value": "{{token}}",
+              "placement": "header"
+            }
+          },
+          "docs": "This gives you the report folder path. In the report you will get the total tests pass, failed and more information about test cases."
+        },
+        {
+          "info": {
+            "name": "Get Appium Shareable Report Link",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{cloud}.pcloudy.com/api/appium/getShareableReportLink",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "token",
+              "value": "{{token}}",
+              "placement": "header"
+            }
+          },
+          "docs": "This API provide sharable report link of the executed appium session"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

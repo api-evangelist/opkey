@@ -1,0 +1,134 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "pCloudy Device Cloud App Control API",
+    "version": "v2"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "token",
+      "value": "{{token}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "App Control",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Check App Installed Via Bundle ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{cloud}.pcloudy.com/api/v2/check-app-installed",
+            "headers": [
+              {
+                "name": "token",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "token",
+              "value": "{{token}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Checks whether an application identified by its bundle id is currently installed on a reserved iOS device, returning a true/false result. Use it as a precondition before launching or installing, to avoid redundant installs and to branch test logic on app presence. iOS only."
+        },
+        {
+          "info": {
+            "name": "Install App",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{cloud}.pcloudy.com/api/v2/install-app",
+            "headers": [
+              {
+                "name": "token",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "token",
+              "value": "{{token}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Installs an application build onto the reserved device using the V2 flow, from a file already uploaded to the pCloudy drive. Used to deploy the app under test before launching it; it does not launch the app by itself."
+        },
+        {
+          "info": {
+            "name": "Open App(V2)",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{cloud}.pcloudy.com/api/v2/open-app",
+            "headers": [
+              {
+                "name": "token",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "token",
+              "value": "{{token}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Launches (brings to the foreground) the specified application on the reserved device. Used to start the app under test at the beginning of a flow, or to re-open it after it was closed or killed. The app must already be installed on the device."
+        },
+        {
+          "info": {
+            "name": "Close App (V2)",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{cloud}.pcloudy.com/api/v2/close-app",
+            "headers": [
+              {
+                "name": "token",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "token",
+              "value": "{{token}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Closes the specified application on the reserved device as a normal close (moving it out of the foreground) rather than a forced kill. Used to end an app flow gracefully or to exercise cold/warm-start behaviour on the next launch."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,74 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "pCloudy Device Cloud File Management API",
+    "version": "v2"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "token",
+      "value": "{{token}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "File Management",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Files_Info(V2)",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{cloud}.pcloudy.com/api/v2/filesinfo",
+            "headers": [
+              {
+                "name": "token",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "token",
+              "value": "{{token}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Returns the list of files and apps available in the account's pCloudy drive, with optional filtering (for example by type such as appdata). Used to discover uploaded builds and data files and obtain their identifiers for install, push, or download operations."
+        },
+        {
+          "info": {
+            "name": "Upload Application",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{cloud}.pcloudy.com/api/v2/upload",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "token",
+              "value": "{{token}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Uploads an application binary (APK/IPA) to the pCloudy drive so it can later be installed on devices. Used to upload the apps under test. User can directly connect the device and install the apps uploaded before."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
