@@ -60,6 +60,7 @@ tags:
 - Artificial Intelligence
 - Agents
 - MCP
+- Developer Tools
 apis:
 - aid: opkey:pcloudy-mcp
   name: pCloudy MCP Server
