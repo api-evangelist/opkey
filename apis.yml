@@ -417,6 +417,9 @@ maintainers:
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: CapabilityMap
+  url: capabilities/opkey-capability-edges.yml
+  name: Opkey Business Capability Map
 - type: Overlay
   url: overlays/opkey-pcloudy-overlay.yaml
 - type: AgenticAccess

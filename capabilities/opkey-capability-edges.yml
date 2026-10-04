@@ -1,0 +1,63 @@
+slug: opkey
+provider: Opkey
+generated_by: planning/capability-mapping/scripts/classify_capabilities.py
+model: claude-opus-5
+frame:
+- Software & Technology
+min_confidence: 0.7
+capability_model:
+  source: https://github.com/vincentmakes/turbo-ea-capabilities
+  license: CC-BY-4.0
+  attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
+    CC BY 4.0
+  notice: NOTICE
+edge_count: 5
+edges:
+- tag: Appium Automation
+  spec_file: opkey-appium-automation-api-openapi.yml
+  capability_id: BC-4200.50
+  capability_id_l1: BC-4200
+  capability_name: Software Quality Engineering
+  confidence: 0.85
+  evidence: '"Book Devices For Appium", "Init AppiumHub for App", "Get Appium Shareable Report Link"'
+  reason: Directly orchestrates Appium automated test sessions on cloud devices and retrieves test reports
+    — automated test suite execution, squarely Software Quality Engineering.
+- tag: Xctest Automation
+  spec_file: opkey-xctest-automation-api-openapi.yml
+  capability_id: BC-4200.50
+  capability_id_l1: BC-4200
+  capability_name: Software Quality Engineering
+  confidence: 0.85
+  evidence: POST /api/xctest/initiate  xctestInitAutomation  Initialize Automation; POST /api/getAutomationShareableLink  Automation
+    Report Shareable Link
+  reason: Explicit automated test (XCTest) orchestration — device booking for automation, initiating runs
+    and sharing automation reports — which is automated test suite execution under software quality engineering.
+- tag: Apk Instrumentation
+  spec_file: opkey-apk-instrumentation-api-openapi.yml
+  capability_id: BC-4200.50
+  capability_id_l1: BC-4200
+  capability_name: Software Quality Engineering
+  confidence: 0.75
+  evidence: POST /api/app_instrumentation/initiate "Instrument Initiate"; "Instrumentation Progress";
+    vendor is an "AI-powered test automation vendor" operating the "pCloudy real-device testing cloud"
+  reason: APK instrumentation is a preparation step for automated mobile test execution on the device
+    cloud, placing it within software quality engineering tooling.
+- tag: Apk Instrumentation Apis
+  spec_file: opkey-apk-instrumentation-apis-api-openapi.yml
+  capability_id: BC-4200.50
+  capability_id_l1: BC-4200
+  capability_name: Software Quality Engineering
+  confidence: 0.75
+  evidence: POST /api/instrument/initiate "Instrument Initiate"; POST /api/instrument/download "Download
+    Instrumented File"
+  reason: Legacy variant of the same APK instrumentation surface used to prepare builds for automated
+    testing on the pCloudy device cloud — software quality engineering tooling.
+- tag: App Control
+  spec_file: opkey-app-control-api-openapi.yml
+  capability_id: BC-4200.50
+  capability_id_l1: BC-4200
+  capability_name: Software Quality Engineering
+  confidence: 0.7
+  evidence: POST /api/v2/install-app "Install App"; "Check App Installed Via Bundle ID"; "Open App(V2)"
+  reason: Primitive operations to install, launch and close an application under test on a cloud real
+    device — test execution control, part of software quality engineering.
