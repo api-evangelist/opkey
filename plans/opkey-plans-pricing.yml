@@ -1,0 +1,52 @@
+# Pricing transcribed from the provider's own page — see provenance. Numbers are quoted, not derived.
+generated: '2026-10-07'
+method: searched
+source: https://www.pcloudy.com/pricing-packages/
+sources:
+- https://www.pcloudy.com/pricing-packages/
+- https://www.pcloudy.com/pricing
+provenance:
+  tool: all/0-working/economics/harvest_pricing.py
+  run: 20261007T104522
+  grounding: every price_text was found verbatim in the fetched page text
+audience: business-product
+pricing_basis: tiered-subscription
+delivery:
+  delivery: managed+licensed
+  method: page
+  read: '2026-10-07'
+  evidence: Run the full Pcloudy real device cloud inside your own data center or secure facility — air-gapped
+    builds, your devices, your network, your rules.
+published: true
+note: Core Live/Manual and Automated Testing plans show only parallel-test selectors with no numeric prices
+  in the text; only add-on solutions show 'Starts at' monthly prices. Annual plans stated to include 20%
+  discount.
+plan_count: 6
+currency: USD
+plans:
+- name: App Performance Experience
+  price_text: Starts at $239 /month
+  price: 239
+  currency: USD
+  period: month
+- name: Test Automation Agent
+  price_text: Starts at $200 /month
+  price: 200
+  currency: USD
+  period: month
+- name: Visual Testing Agent
+  price_text: Starts at $80 /month
+  price: 80
+  currency: USD
+  period: month
+- name: Accessibility Testing Agent
+  price_text: Starts at $23 /month
+  price: 23
+  currency: USD
+  period: month
+- name: Private Cloud
+  price_text: Request a Quote
+  period: none
+- name: On-Premise Cloud
+  price_text: Request a Quote
+  period: none
