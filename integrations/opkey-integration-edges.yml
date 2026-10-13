@@ -1,0 +1,22 @@
+generated: '2026-10-13'
+method: searched
+checked:
+- https://aws.amazon.com/marketplace/
+marketplace_apps: []
+edges:
+- partner_name: AWS Marketplace
+  partner: amazon-web-services
+  partner_match: aggregator
+  type: marketplace
+  marketplace: aws-marketplace
+  channel: distribution
+  relationship: platform-app
+  direction: provider-built
+  evidence: https://aws.amazon.com/marketplace/seller-profile?id=seller-rr5ilmthhgnqm
+  listing_count: 2
+  apps:
+  - 'Opkey: The Continuous Test Automation Platform'
+  - 'Pcloudy: Unified Testing Platform'
+  seller_name: Opkey
+  detected_by: sweep-cloud-marketplaces.py
+  detected: '2026-10-13'
