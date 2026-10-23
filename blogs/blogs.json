@@ -3,30 +3,27 @@
   "feeds": [
     {
       "source": "https://www.opkey.com/news",
-      "feed_url": "https://www.opkey.com/news",
+      "feed_url": "https://www.opkey.com/news/feed/",
       "title": "",
       "saved": 0,
-      "method": "none"
+      "method": "discovered"
     },
     {
       "source": "https://www.opkey.com/news/feed",
-      "feed_url": "https://www.opkey.com/news/feed",
-      "title": "",
-      "saved": 0,
-      "method": "feed"
-    },
-    {
-      "source": "https://www.opkey.com/blog",
       "error": "HTTPError"
     },
     {
-      "source": "https://www.pcloudy.com/docs/mobile-app-testing/get-started",
-      "feed_url": "https://www.pcloudy.com/docs/mobile-app-testing/get-started",
+      "source": "https://www.opkey.com/blog",
+      "feed_url": "https://www.opkey.com/blog/feed/",
       "title": "",
       "saved": 0,
-      "method": "none"
+      "method": "discovered"
+    },
+    {
+      "source": "https://www.pcloudy.com/docs/mobile-app-testing/get-started",
+      "error": "URLError"
     }
   ],
-  "post_count": 0,
-  "fetched": "2026-10-10T13:15:00Z"
+  "post_count": 10,
+  "fetched": "2026-10-17T14:53:57Z"
 }
