@@ -64,37 +64,156 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Opkey (Smart Software Testing Solutions, Inc.) is a Cloud Application Lifecycle Management and
-AI-powered test automation vendor for enterprise packaged applications — Oracle Cloud/EBS, Workday,
-Salesforce, SAP, Coupa, Veeva, UKG and Microsoft Dynamics.
+Opkey (Smart Software Testing Solutions, Inc.) is a US-headquartered Cloud Application Lifecycle Management and AI-powered test automation vendor for enterprise packaged applications. Its no-code platform ships pre-built automated tests and change-impact analysis for Oracle Cloud/EBS, Workday, Salesforce, SAP, Coupa, Veeva, UKG/Kronos and Microsoft Dynamics, alongside an agentic layer (Argus AI, Testing/Configuration/Training/Impact-Analysis/PMO agents, Release Advisor and Maestro). Opkey also operates pCloudy, the real-device mobile and browser testing cloud it acquired, which carries the company's public developer surface: a documented REST API for device booking, app upload/install, device interaction, performance capture, network simulation, Appium/XCTest orchestration and APK instrumentation, plus a published pCloudy MCP server that exposes device booking, app management and QPilot AI test authoring as tools to MCP clients. The core Opkey product help and user guides sit behind a customer login; the pCloudy documentation, API reference and release notes are public.
 
-Opkey's public developer surface lives on **pCloudy**, the real-device mobile and browser testing
-cloud it operates. The core Opkey product help and user guides are **not** public — everything under
-`www.opkey.com/Help/docs/` 301-redirects to a Freshdesk customer hub that requires a login. pCloudy's
-documentation, API reference and release notes are public.
+**Areas:** Company · Testing · Test Automation · Quality Assurance · DevOps · Continuous Integration · Mobile Testing · Device Cloud · ERP · Artificial Intelligence · Agents · MCP
 
-## What is profiled here
+## Opkey on APIs.io
 
-| Surface | Where |
+Everything profiled for Opkey is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/opkey/](https://apis.io/providers/opkey/)** — or go straight to one of the APIs or properties below.
+
+### APIs (16)
+
+- [pCloudy MCP Server](https://apis.io/apis/opkey/pcloudy-mcp/) — The official pCloudy MCP server, published by pCloudy as the Python package pcloudy-mcp and run over stdio with uvx. It exposes 36 tools across four groups…
+- [Opkey Apk Instrumentation API](https://apis.io/apis/opkey/opkey-apk-instrumentation-api/) — The Apk Instrumentation API from Opkey — 3 operation(s) for apk instrumentation.
+- [Opkey Apk Instrumentation Apis API](https://apis.io/apis/opkey/opkey-apk-instrumentation-apis-api/) — The Apk Instrumentation Apis API from Opkey — 3 operation(s) for apk instrumentation apis.
+- [Opkey App Center Api](https://apis.io/apis/opkey/opkey-app-center-api-api/) — The App Center Api API from Opkey — 5 operation(s) for app center api.
+- [Opkey App Control API](https://apis.io/apis/opkey/opkey-app-control-api/) — The App Control API from Opkey — 4 operation(s) for app control.
+- [Opkey Appium Automation API](https://apis.io/apis/opkey/opkey-appium-automation-api/) — The Appium Automation API from Opkey — 11 operation(s) for appium automation.
+- [Opkey Authentication API](https://apis.io/apis/opkey/opkey-authentication-api/) — The Authentication API from Opkey — 1 operation(s) for authentication.
+- [Opkey Device Booking & Session API](https://apis.io/apis/opkey/opkey-device-booking-session-api/) — The Device Booking & Session API from Opkey — 3 operation(s) for device booking & session.
+- [Opkey Device Interaction API](https://apis.io/apis/opkey/opkey-device-interaction-api/) — The Device Interaction API from Opkey — 8 operation(s) for device interaction.
+- [Opkey File Management API](https://apis.io/apis/opkey/opkey-file-management-api/) — The File Management API from Opkey — 2 operation(s) for file management.
+- [Opkey Generic API](https://apis.io/apis/opkey/opkey-generic-api/) — The Generic API from Opkey — 30 operation(s) for generic.
+- [Opkey Network Simulation API](https://apis.io/apis/opkey/opkey-network-simulation-api/) — The Network Simulation API from Opkey — 5 operation(s) for network simulation.
+- [Opkey Performance API](https://apis.io/apis/opkey/opkey-performance-api/) — The Performance API from Opkey — 1 operation(s) for performance.
+- [Opkey Resigning Apis API](https://apis.io/apis/opkey/opkey-resigning-apis-api/) — The Resigning Apis API from Opkey — 3 operation(s) for resigning apis.
+- [Opkey Session Media & Logs API](https://apis.io/apis/opkey/opkey-session-media-logs-api/) — The Session Media & Logs API from Opkey — 5 operation(s) for session media & logs.
+- [Opkey Xctest Automation API](https://apis.io/apis/opkey/opkey-xctest-automation-api/) — The Xctest Automation API from Opkey — 6 operation(s) for xctest automation.
+
+### Published properties
+
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
+
+#### MCP servers (1)
+
+Model Context Protocol servers that expose the API to agents.
+
+- [pCloudy-mcp-tool](https://apis.io/servers/opkey/pcloudy-mcp-tool/)
+
+#### Agentic access (1)
+
+Which operations an agent can call, which act, and which need a human in the loop.
+
+- [Opkey Agentic Access](https://apis.io/agentic-access/opkey/opkey-agentic-access/)
+
+#### Collections (15)
+
+Postman and Open Collection request collections.
+
+- [pCloudy Device Cloud Apk Instrumentation API](https://apis.io/collections/opkey/open-opkey-apk-instrumentation-api/)
+- [pCloudy Device Cloud Apk Instrumentation Apis API](https://apis.io/collections/opkey/open-opkey-apk-instrumentation-apis-api/)
+- [pCloudy Device Cloud App Center Api API](https://apis.io/collections/opkey/open-opkey-app-center-api-api/)
+- [pCloudy Device Cloud App Control API](https://apis.io/collections/opkey/open-opkey-app-control-api/)
+- [pCloudy Device Cloud Appium Automation API](https://apis.io/collections/opkey/open-opkey-appium-automation-api/)
+- [pCloudy Device Cloud Authentication API](https://apis.io/collections/opkey/open-opkey-authentication-api/)
+- [pCloudy Device Cloud Device Booking & Session API](https://apis.io/collections/opkey/open-opkey-device-booking-session-api/)
+- [pCloudy Device Cloud Device Interaction API](https://apis.io/collections/opkey/open-opkey-device-interaction-api/)
+- [pCloudy Device Cloud File Management API](https://apis.io/collections/opkey/open-opkey-file-management-api/)
+- [pCloudy Device Cloud Generic API](https://apis.io/collections/opkey/open-opkey-generic-api/)
+- [pCloudy Device Cloud Network Simulation API](https://apis.io/collections/opkey/open-opkey-network-simulation-api/)
+- [pCloudy Device Cloud Performance API](https://apis.io/collections/opkey/open-opkey-performance-api/)
+- [pCloudy Device Cloud Resigning Apis API](https://apis.io/collections/opkey/open-opkey-resigning-apis-api/)
+- [pCloudy Device Cloud Session Media & Logs API](https://apis.io/collections/opkey/open-opkey-session-media-logs-api/)
+- [pCloudy Device Cloud Xctest Automation API](https://apis.io/collections/opkey/open-opkey-xctest-automation-api/)
+
+#### Overlays (1)
+
+OpenAPI overlays, including conversational phrasing for each operation.
+
+- [Opkey Pcloudy Overlay](https://apis.io/overlays/opkey/opkey-pcloudy-overlay/)
+
+#### Security (2)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Opkey Authentication](https://apis.io/security/opkey/opkey-authentication/)
+- [Opkey Domain Security](https://apis.io/security/opkey/opkey-domain-security/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Opkey Plans Pricing](https://apis.io/plans/opkey/opkey-plans-pricing/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://www.opkey.com/)
+- [Documentation](https://www.pcloudy.com/docs/)
+- [Getting started](https://www.pcloudy.com/docs/mobile-app-testing/get-started)
+- [API reference](https://content.pcloudy.com/apidocs/index.html)
+- [Pricing](https://www.pcloudy.com/pricing)
+- [Sign up](https://device.pcloudy.com/signup)
+- [Support](https://customerhub.opkey.com/support/solutions)
+- [Blog](https://www.opkey.com/news)
+- [Compliance](https://www.opkey.com/security-and-trust)
+- [Terms of service](https://www.opkey.com/terms-and-conditions)
+- [Privacy policy](https://www.opkey.com/privacy-policy)
+- [GitHub](https://github.com/Smart-Software-Testing-Solutions-Opkey)
+
+## API Evangelist rating
+
+**Kin Score 55.3** — strong · rubric 0.25.0 · scored 2026-10-23
+
+| Facet | Score |
 |---|---|
-| pCloudy Device Cloud API — 90 documented operations | `openapi/` (transcribed; Opkey publishes no OpenAPI) |
-| pCloudy MCP server — 36 tools, `uvx pcloudy-mcp` | `mcp/` |
-| MCP → REST tool crosswalk | `mcp/opkey-tool-crosswalk.yml` |
-| Auth, conventions, errors, lifecycle, data model | `authentication/` `conventions/` `errors/` `lifecycle/` `data-model/` |
-| Packages, CLI utilities, sandbox, changelog | `packages/` `cli/` `sandbox/` `changelog/` |
-| Agent skills grounded in real operationIds | `skills/` |
+| Discoverability | 73.2 |
+| Contract quality | 55.4 |
+| Contract governance | 18.2 |
+| Operational transparency | 18.4 |
+| Developer ergonomics | 68.5 |
+| Access clarity | 73.7 |
 
-**Provenance note.** `openapi/opkey-pcloudy-openapi.yml` is an API Evangelist transcription of the
-operations, parameters and response samples Opkey publishes at
-<https://content.pcloudy.com/apidocs/>. It is a third-party artifact, not a provider document.
-Opkey does not publish a machine-readable specification.
+**Agent readiness 24.5** — agent-aware
 
-## Links
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | derived (partial credit) |
+| OpenAPI Examples | verified |
+| Rate Limit Signal | — |
+| Event Surface Described | — |
+| Agent Skills | derived (partial credit) |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+| Pagination Ratio | na |
+| Operation Distinctiveness | mostly |
 
-- Company — https://www.opkey.com/
-- pCloudy docs — https://www.pcloudy.com/docs/
-- pCloudy API reference — https://content.pcloudy.com/apidocs/index.html
-- pCloudy MCP server — https://www.pcloudy.com/docs/mcp-server/
-- Security & Trust — https://www.opkey.com/security-and-trust
-- GitHub — https://github.com/Smart-Software-Testing-Solutions-Opkey
-- Secondary-market listing (original harvest source) — https://forgeglobal.com/opkey_stock/
+**Regulatory alignment 27.3** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/opkey/](https://apis.io/providers/opkey/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Opkey: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/opkey/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
